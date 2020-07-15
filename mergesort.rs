@@ -32,7 +32,7 @@ fn mergesort(arr: &mut [i32]) {
       arr2[f] = arr[p2];
       p2 += 1;
     } else {
-     break;
+      break;
     }
     f += 1;
   }
