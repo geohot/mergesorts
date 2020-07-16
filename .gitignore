@@ -6,6 +6,8 @@ Mergesort
 *.s
 *.o
 *.class
+*.cmi
+*.cmo
 
 ## Intelij Files
 *.iml

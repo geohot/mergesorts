@@ -35,3 +35,6 @@ perl mergesort.pl
 
 echo "Running the Go version"
 rm -f mergesort && go build mergesort.go && ./mergesort
+
+echo "Running the OCaml version"
+rm -f mergesort && ocamlc mergesort.ml -o mergesort && ./mergesort
