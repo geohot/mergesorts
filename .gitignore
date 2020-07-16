@@ -6,3 +6,5 @@ Mergesort
 *.s
 *.o
 *.class
+*.cmi
+*.cmo
