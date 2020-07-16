@@ -1,7 +1,8 @@
 a.out
 mergesort
+Mergesort
 .*.swp
 *.hi
 *.s
 *.o
-
+*.class
