@@ -24,9 +24,7 @@ func mergesort(arr []int) []int {
 			arr[i] = left[j]
 			j++
 			continue
-		}
-
-		if left[j] > right[k] {
+		} else if left[j] > right[k] {
 			arr[i] = right[k]
 			k++
 		} else {
@@ -34,7 +32,6 @@ func mergesort(arr []int) []int {
 			j++
 		}
 	}
-
 	return arr
 }
 
