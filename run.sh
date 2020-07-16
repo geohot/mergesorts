@@ -30,3 +30,5 @@ rm -f mergesort && g++ -std=c++17 mergesort.cpp && ./a.out
 echo "Running the Julia version"
 julia mergesort.jl
 
+echo "Running the Perl version"
+perl mergesort.pl
