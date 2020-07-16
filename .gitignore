@@ -6,3 +6,7 @@ Mergesort
 *.s
 *.o
 *.class
+
+## Intelij Files
+*.iml
+.idea
