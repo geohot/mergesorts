@@ -6,3 +6,4 @@ rm -f mergesort && rustc mergesort.rs && ./mergesort
 rm -f mergesort && javac mergesort.java && java mergesort
 rhino mergesort.js
 php mergesort.php
+rm -f mergesort && g++ -std=c++17 mergesort.cpp && ./a.out
