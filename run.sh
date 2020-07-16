@@ -41,3 +41,6 @@ rm -f mergesort && ocamlc mergesort.ml -o mergesort && ./mergesort
 
 echo "Running the CSharp version"
 mcs -out mergesort.exe mergesort.cs && mono mergesort.exe
+
+echo "Running the Swift version"
+chmod +x mergesort.swift && ./mergesort.swift
