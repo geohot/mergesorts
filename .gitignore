@@ -8,3 +8,7 @@ Mergesort
 *.class
 *.cmi
 *.cmo
+
+## Intelij Files
+*.iml
+.idea
