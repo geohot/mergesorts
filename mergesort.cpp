@@ -38,7 +38,7 @@ void mergesort(int a[], int start, int end){
 
 
 signed main() {
-    int a[] = { 1, 42, 0,  -6, 9, 1000, -10000, 123 };
+    int a[] = {5,9,1,3,4,6,6,3,2};
     mergesort(a, 0, sizeof(a)/sizeof(int) - 1);
     for (int f: a){
         cout << f << " ";
