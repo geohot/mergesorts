@@ -26,3 +26,7 @@ scala mergesort.scala
 
 echo "Running the C++ version"
 rm -f mergesort && g++ -std=c++17 mergesort.cpp && ./a.out
+
+echo "Running the Julia version"
+julia mergesort.jl
+
