@@ -46,4 +46,4 @@ function mergesort(a){
 }
 
 a = [5,9,1,3,4,6,6,3,2];
-print(mergesort(a))
+console.log(mergesort(a))
