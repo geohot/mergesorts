@@ -32,3 +32,6 @@ julia mergesort.jl
 
 echo "Running the Perl version"
 perl mergesort.pl
+
+echo "Running the Go version"
+rm -f mergesort && go build mergesort.go && ./mergesort
