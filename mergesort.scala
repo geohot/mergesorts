@@ -25,7 +25,6 @@ def merge(left: Seq[Int], right: Seq[Int]): Seq[Int] = {
 def mergeSort(input: Seq[Int]): Seq[Int] = {
   if (input.size <= 2) {
     return input match {
-      case x :: Nil => input
       case x :: y :: Nil if (y < x) => Seq(y, x)
       case _ => input
     }
