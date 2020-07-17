@@ -12,6 +12,7 @@ This is a project that is here to demonstrate different implementations of the [
   * GCC
   * Rust
   * [J](https://code.jsoftware.com/wiki/System/Installation)
+  * [ChezScheme](https://cisco.github.io/ChezScheme/)
   
  ## Running all of the versions
  

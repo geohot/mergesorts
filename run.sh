@@ -41,3 +41,6 @@ rm -f mergesort && ocamlc mergesort.ml -o mergesort && ./mergesort
 
 echo "Running the J version"
 jconsole mergesort.ijs
+
+echo "Running the Scheme version"
+scheme --script mergesort.ss
