@@ -1,20 +1,20 @@
 #!/bin/bash
 
 MergeSort (){
-  local a=($@)
+  local a=("$@")
   if [ ${#a[@]} -eq "1" ]
   then
     r=("${a[@]}")
-    echo ${r[@]}
+    echo "${r[@]}"
   elif [[ "${#a[@]}" -eq "2" ]]
   then
     if [[ "${a[0]}" -gt "${a[1]}" ]]
     then
       local t=("${a[1]}" "${a[0]}")
-      echo ${t[@]}
+      echo "${t[@]}"
     else
       r=("${a[@]}")
-      echo ${r[@]}
+      echo "${r[@]}"
     fi
   else
 
@@ -49,9 +49,9 @@ MergeSort (){
         break
       fi
     done
-    echo ${ret[@]}
+    echo "${ret[@]}"
   fi
 }
 
 a=(5 9 1 3 4 6 6 3 2)
-echo $(MergeSort ${a[@]})
+MergeSort "${a[@]}"
