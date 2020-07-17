@@ -11,6 +11,7 @@ This is a project that is here to demonstrate different implementations of the [
   * Scala compiler
   * GCC
   * Rust
+  * Kotlin Compiler
   
  ## Running all of the versions
  
