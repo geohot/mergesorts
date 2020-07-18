@@ -35,6 +35,6 @@ def mergeSort(input: Seq[Int]): Seq[Int] = {
   merge(left, right)
 }
 
-val input = Seq(5, 3, 2 ,1, 7)
+val input = Seq(5,9,1,3,4,6,6,3,2)
 
-println(s"Sample $input sorts to ${mergeSort(input)}")
+println(s"${mergeSort(input)}")

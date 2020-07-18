@@ -53,8 +53,13 @@ jobs:
 
     # set up elixir
     - name : install elixir
-      run : sudo apt-get install elixir
+      run : sudo apt install elixir
 
+    # set up R
+    - name : install R
+      run : sudo apt install r-base-core
+
+      
     # Runs the main script script
     - name: Run script
       run: ./run.sh
