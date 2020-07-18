@@ -13,10 +13,10 @@ echo "Running the Rust version"
 rm -f mergesort && rustc mergesort.rs && ./mergesort
 
 echo "Running the Java version"
-rm -f Mergesort && javac Mergesort.java && java Mergesort
+rm -f mergesort && javac mergesort.java && java mergesort
 
 echo "Running the Javascript version"
-rhino mergesort.js
+node mergesort.js
 
 echo "Running the PHP version"
 php mergesort.php
@@ -44,3 +44,15 @@ csc mergesort.cs && mergesort
 
 echo "Running the Kotlin version"
 kotlin mergesort.kt -include-runtime -d mergesort.jar && java -jar mergesort
+
+echo "Running the Prolog version"
+rm -f mergesort && swipl -g main --stand_alone=true -o mergesort -c mergesort.pro && ./mergesort
+
+echo "Running the J version"
+jconsole mergesort.ijs
+
+echo "Running the Scheme version"
+scheme --script mergesort.ss
+
+echo "Running the Ruby version"
+ruby mergesort.rb
