@@ -55,6 +55,10 @@ jobs:
     - name : install elixir
       run : sudo apt-get install elixir
 
+    # set up golang
+    - name : install golang
+      run : sudo apt-get install golang-go
+
     # Runs the main script script
     - name: Run script
       run: ./run.sh
