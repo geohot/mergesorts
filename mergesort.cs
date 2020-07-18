@@ -1,90 +1,92 @@
-class MergeSort
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Merge_sort
+{    
+    class Program
     {
-        public static int[] mergeSort(int[] array)
+        static void Main(string[] args)
         {
-            int[] left;
-            int[] right;
-            int[] result = new int[array.Length];  
-            //As this is a recursive algorithm, we need to have a base case to 
-            //avoid an infinite recursion and therfore a stackoverflow
-            if (array.Length <= 1)
-                return array;              
-            // The exact midpoint of our array  
-            int midPoint = array.Length / 2;  
-            //Will represent our 'left' array
-            left = new int[midPoint];
-  
-            //if array has an even number of elements, the left and right array will have the same number of 
-            //elements
-            if (array.Length % 2 == 0)
-                right = new int[midPoint];  
-            //if array has an odd number of elements, the right array will have one more element than left
-            else
-                right = new int[midPoint + 1];  
-            //populate left array
-            for (int i = 0; i < midPoint; i++)
-                left[i] = array[i];  
-            //populate right array   
-            int x = 0;
-            //We start our index from the midpoint, as we have already populated the left array from 0 to 
-            midpont;
-            for (int i = midPoint; i < array.Length; i++)
+            List<int> unsorted = new List<int>();
+            List<int> sorted;
+
+            Random random = new Random();
+
+            Console.WriteLine("Original array elements:" );
+            for(int i = 0; i< 10;i++){
+                unsorted.Add(random.Next(0,100));
+                Console.Write(unsorted[i]+" ");
+            }
+            Console.WriteLine();
+
+            sorted = MergeSort(unsorted);
+
+            Console.WriteLine("Sorted array elements: ");
+            foreach (int x in sorted)
             {
-                right[x] = array[i];
-                x++;
-            }  
-            //Recursively sort the left array
-            left = mergeSort(left);
-            //Recursively sort the right array
-            right = mergeSort(right);
-            //Merge our two sorted arrays
-            result = merge(left, right);  
-            return result;
+                Console.Write(x+" ");
+            }
+			Console.Write("\n");
         }
-  
-        //This method will be responsible for combining our two sorted arrays into one giant array
-        public static int[] merge(int[] left, int[] right)
+		
+
+        private static List<int> MergeSort(List<int> unsorted)
         {
-            int resultLength = right.Length + left.Length;
-            int[] result = new int[resultLength];
-            //
-            int indexLeft = 0, indexRight = 0, indexResult = 0;  
-            //while either array still has an element
-            while (indexLeft < left.Length || indexRight < right.Length)
+            if (unsorted.Count <= 1)
+                return unsorted;
+
+            List<int> left = new List<int>();
+            List<int> right = new List<int>();
+
+            int middle = unsorted.Count / 2;
+            for (int i = 0; i < middle;i++)  //Dividing the unsorted list
             {
-                //if both arrays have elements  
-                if (indexLeft < left.Length && indexRight < right.Length)  
-                {  
-                    //If item on left array is less than item on right array, add that item to the result array 
-                    if (left[indexLeft] <= right[indexRight])
+                left.Add(unsorted[i]);
+            }
+            for (int i = middle; i < unsorted.Count; i++)
+            {
+                right.Add(unsorted[i]);
+            }
+
+            left = MergeSort(left);
+            right = MergeSort(right);
+            return Merge(left, right);
+        }
+
+        private static List<int> Merge(List<int> left, List<int> right)
+        {
+            List<int> result = new List<int>();
+
+            while(left.Count > 0 || right.Count>0)
+            {
+                if (left.Count > 0 && right.Count > 0)
+                {
+                    if (left.First() <= right.First())  //Comparing First two elements to see which is smaller
                     {
-                        result[indexResult] = left[indexLeft];
-                        indexLeft++;
-                        indexResult++;
+                        result.Add(left.First());
+                        left.Remove(left.First());      //Rest of the list minus the first element
                     }
-                    // else the item in the right array wll be added to the results array
                     else
                     {
-                        result[indexResult] = right[indexRight];
-                        indexRight++;
-                        indexResult++;
+                        result.Add(right.First());
+                        right.Remove(right.First());
                     }
                 }
-                //if only the left array still has elements, add all its items to the results array
-                else if (indexLeft < left.Length)
+                else if(left.Count>0)
                 {
-                    result[indexResult] = left[indexLeft];
-                    indexLeft++;
-                    indexResult++;
+                    result.Add(left.First());
+                    left.Remove(left.First());
                 }
-                //if only the right array still has elements, add all its items to the results array
-                else if (indexRight < right.Length)
+                else if (right.Count > 0)
                 {
-                    result[indexResult] = right[indexRight];
-                    indexRight++;
-                    indexResult++;
-                }  
+                    result.Add(right.First());
+
+                    right.Remove(right.First());    
+                }    
             }
             return result;
         }
     }
+}
