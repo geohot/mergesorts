@@ -27,7 +27,7 @@ class MergeSort
             //populate right array   
             int x = 0;
             //We start our index from the midpoint, as we have already populated the left array from 0 to 
-            midpont
+            midpont;
             for (int i = midPoint; i < array.Length; i++)
             {
                 right[x] = array[i];
