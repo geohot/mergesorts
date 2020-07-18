@@ -16,7 +16,7 @@ echo "Running the Java version"
 rm -f mergesort && javac mergesort.java && java mergesort
 
 echo "Running the Javascript version"
-rhino mergesort.js
+node mergesort.js
 
 echo "Running the PHP version"
 php mergesort.php
@@ -39,11 +39,31 @@ rm -f mergesort && go build mergesort.go && ./mergesort
 echo "Running the OCaml version"
 rm -f mergesort && ocamlc mergesort.ml -o mergesort && ./mergesort
 
+
 echo "Running the CSharp version"
 mcs -out mergesort.exe mergesort.cs && mono mergesort.exe
 
 echo "Running the Swift version"
 chmod +x mergesort.swift && ./mergesort.swift
+=======
+echo "Running the Bash version"
+bash mergesort.sh
+
+echo "Running the C# version"
+csc mergesort.cs && mergesort
+
+echo "Running the Kotlin version"
+kotlin mergesort.kt -include-runtime -d mergesort.jar && java -jar mergesort
+
+echo "Running the Prolog version"
+rm -f mergesort && swipl -g main --stand_alone=true -o mergesort -c mergesort.pro && ./mergesort
+
+echo "Running the J version"
+jconsole mergesort.ijs
+
+echo "Running the Scheme version"
+scheme --script mergesort.ss
+
 
 echo "Running the Ruby version"
 ruby mergesort.rb
