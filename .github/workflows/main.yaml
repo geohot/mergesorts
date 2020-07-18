@@ -40,7 +40,6 @@ jobs:
     - name : install kotlin 
       run: sudo snap install --classic kotlin
 
-
     # Runs the main script script
     - name: Run script
       run: ./run.sh
