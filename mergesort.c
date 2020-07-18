@@ -49,7 +49,7 @@ void my_mergesort(int *arr, int len) {
 }
 
 int main() {
-	int a[] = {5,9,1,3,4,6,6,3,2};
+  int a[] = {5,9,1,3,4,6,6,3,2};
   int len = sizeof(a)/sizeof(int);
   my_mergesort(a, sizeof(a)/sizeof(int));
   for (int i = 0; i < len; i++) {
