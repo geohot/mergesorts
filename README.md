@@ -3,22 +3,9 @@
 This is a project that is here to demonstrate different implementations of the [merge sort algorithm](https://en.wikipedia.org/wiki/Merge_sort).<br>
 Pick up a [programming language](https://en.wikipedia.org/wiki/List_of_programming_languages) and try to implement it yourself
 
-## Environment Requirements to run
-
-  * python3 
-  * PHP
-  * Haskell compiler
-  * Java JDK 
-  * Scala compiler
-  * GCC
-  * Rust
-  * bash
-  * node
-  * Kotlin Compiler
-  * [J](https://code.jsoftware.com/wiki/System/Installation)
-  * [ChezScheme](https://cisco.github.io/ChezScheme/)
-  * Ruby
   
- ## Running all of the versions
+## Running all of the versions
  
+ Install everything you need
  Run the command: `./run.sh`
+
