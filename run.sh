@@ -16,7 +16,7 @@ echo "Running the Java version"
 rm -f mergesort && javac mergesort.java && java mergesort
 
 echo "Running the Javascript version"
-rhino mergesort.js
+node mergesort.js
 
 echo "Running the PHP version"
 php mergesort.php
