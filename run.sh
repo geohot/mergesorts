@@ -13,7 +13,7 @@ echo "Running the Rust version"
 rm -f mergesort && rustc mergesort.rs && ./mergesort
 
 echo "Running the Java version"
-rm -f Mergesort && javac Mergesort.java && java Mergesort
+rm -f mergesort && javac mergesort.java && java mergesort
 
 echo "Running the Javascript version"
 node mergesort.js
@@ -38,3 +38,12 @@ rm -f mergesort && go build mergesort.go && ./mergesort
 
 echo "Running the OCaml version"
 rm -f mergesort && ocamlc mergesort.ml -o mergesort && ./mergesort
+
+echo "Running the J version"
+jconsole mergesort.ijs
+
+echo "Running the Scheme version"
+scheme --script mergesort.ss
+
+echo "Running the Ruby version"
+ruby mergesort.rb
