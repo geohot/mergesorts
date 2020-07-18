@@ -59,3 +59,6 @@ scheme --script mergesort.ss
 
 echo "Running the Ruby version"
 ruby mergesort.rb
+
+echo "Running the R version"
+Rscript mergesort.r
