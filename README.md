@@ -6,6 +6,5 @@ Pick up a [programming language](https://en.wikipedia.org/wiki/List_of_programmi
   
 ## Running all of the versions
  
- Install everything you need
- Run the command: `./run.sh`
+ Install everything you need and run: `./run.sh`
 
