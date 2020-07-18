@@ -6,7 +6,7 @@ rm -f a.out && gcc mergesort.c && ./a.out
 echo "\n Running the Python version"
 python3 mergesort.py
 
-echo "\n Running the haskell version"
+echo "\n Running the Haskell version"
 rm -f mergesort && ghc mergesort.hs && ./mergesort
 
 echo "\n Running the Rust version"
