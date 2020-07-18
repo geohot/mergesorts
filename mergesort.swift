@@ -1,5 +1,5 @@
-func merge<T: Comparable> (array: inout [T], startIndex: Int, middleIndex: Int, endIndex: Int) {
-    let leftSubarray = Array(array[startIndex...middleIndex])
+func merge<T: Comparable> (array: inout [T], startindex: Int, middleindex: Int, endindex: Int) {
+    let leftSubarray = Array(array[startindex...middleIndex])
     let rightSubarray = Array(array[middleIndex+1...endIndex])
     
     var index = startIndex
@@ -18,15 +18,15 @@ func merge<T: Comparable> (array: inout [T], startIndex: Int, middleIndex: Int, 
         index += 1
     }
     
-    while leftIndex < leftSubarray.count {
-        array[index] = leftSubarray[leftIndex]
+    while leftindex < leftSubarray.count {
+        array[index] = leftSubarray[leftindex]
         index += 1
-        leftIndex += 1
+        leftindex += 1
     }
     
-    while rightIndex < rightSubarray.count {
-        array[index] = rightSubarray[rightIndex]
+    while rightindex < rightSubarray.count {
+        array[index] = rightSubarray[rightindex]
         index += 1
-        rightIndex += 1
+        rightindex += 1
     }
 }
