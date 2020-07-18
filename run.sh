@@ -1,67 +1,67 @@
 #!/bin/bash
 
-printf "\n Running the C version"
+printf "\nRunning the C version : \n"
 rm -f a.out && gcc mergesort.c && ./a.out
 
-printf "\n Running the Python version"
+printf "\nRunning the Python version : \n"
 python3 mergesort.py
 
-printf "\n Running the Haskell version"
+printf "\nRunning the Haskell version : \n"
 rm -f mergesort && ghc mergesort.hs && ./mergesort
 
-printf "\n Running the Rust version"
+printf "\nRunning the Rust version : \n"
 rm -f mergesort && rustc mergesort.rs && ./mergesort
 
-printf "\n Running the Java version"
+printf "\nRunning the Java version : \n"
 rm -f mergesort && javac mergesort.java && java mergesort
 
-printf "\n Running the Javascript version"
+printf "\nRunning the Javascript version : \n"
 node mergesort.js
 
-printf "\n Running the PHP version"
+printf "\nRunning the PHP version : \n"
 php mergesort.php
 
-printf "\n Running the Scala version"
+printf "\nRunning the Scala version : \n"
 scala mergesort.scala 
 
-printf "\n Running the C++ version"
+printf "\nRunning the C++ version : \n"
 rm -f mergesort && g++ -std=c++17 mergesort.cpp && ./a.out
 
-printf "\n Running the Julia version"
+printf "\nRunning the Julia version : \n"
 julia mergesort.jl
 
-printf "\n Running the Perl version"
+printf "\nRunning the Perl version : \n"
 perl mergesort.pl
 
-printf "\n Running the Go version"
+printf "\nRunning the Go version : \n"
 rm -f mergesort && go build mergesort.go && ./mergesort
 
-printf "\n Running the OCaml version"
+printf "\nRunning the OCaml version : \n"
 rm -f mergesort && ocamlc mergesort.ml -o mergesort && ./mergesort
 
-printf "\n Running the Bash version"
+printf "\nRunning the Bash version : \n"
 bash mergesort.sh
 
-printf "\n Running the C# version"
+printf "\nRunning the C# version : \n"
 csc mergesort.cs && mergesort
 
-printf "\n Running the Kotlin version"
+printf "\nRunning the Kotlin version : \n"
 kotlin mergesort.kt -include-runtime -d mergesort.jar && java -jar mergesort
 
-printf "\n Running the Prolog version"
+printf "\nRunning the Prolog version : \n"
 rm -f mergesort && swipl -g main --stand_alone=true -o mergesort -c mergesort.pro && ./mergesort
 
-printf "\n Running the J version"
+printf "\nRunning the J version : \n" 
 ijconsole mergesort.ijs
 
-printf "\n Running the Scheme version"
+printf "\nRunning the Scheme version : \n"
 scheme --script mergesort.ss
 
-printf "\n Running the Ruby version"
+printf "\nRunning the Ruby version : \n"
 ruby mergesort.rb
 
-printf "\n Running the R version"
+printf "\nRunning the R version : \n"
 Rscript mergesort.r
 
-printf "\n Running the Elixir version"
+printf "\nRunning the Elixir version : \n"
 elixir mergesort.exs
