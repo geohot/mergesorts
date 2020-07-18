@@ -22,7 +22,7 @@ echo "\n Running the PHP version"
 php mergesort.php
 
 echo "\n Running the Scala version"
-scala mergesort.scala 
+scala mergesort.scala
 
 echo "\n Running the C++ version"
 rm -f mergesort && g++ -std=c++17 mergesort.cpp && ./a.out
@@ -62,3 +62,6 @@ ruby mergesort.rb
 
 echo "Running the R version"
 Rscript mergesort.r
+
+echo "Running the Elixir version"
+elixir mergesort.exs
