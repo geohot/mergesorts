@@ -14,6 +14,10 @@ Pick up a [programming language](https://en.wikipedia.org/wiki/List_of_programmi
   * Rust
   * bash
   * node
+  * Kotlin Compiler
+  * [J](https://code.jsoftware.com/wiki/System/Installation)
+  * [ChezScheme](https://cisco.github.io/ChezScheme/)
+  * Ruby
   
  ## Running all of the versions
  

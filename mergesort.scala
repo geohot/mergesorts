@@ -1,5 +1,3 @@
-
-
 //This could have been simplified as a tailrec more readable version, but let's save some call stacks and bleed the two seqs
 // The simplified recursive sort + tailrec is at https://medium.com/analytics-vidhya/playing-with-scala-merge-sort-d382fb1a32ff
 def merge(left: Seq[Int], right: Seq[Int]): Seq[Int] = {
