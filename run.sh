@@ -52,7 +52,7 @@ echo "\n Running the Prolog version"
 rm -f mergesort && swipl -g main --stand_alone=true -o mergesort -c mergesort.pro && ./mergesort
 
 echo "\n Running the J version"
-jconsole mergesort.ijs
+ijconsole mergesort.ijs
 
 echo "\n Running the Scheme version"
 scheme --script mergesort.ss

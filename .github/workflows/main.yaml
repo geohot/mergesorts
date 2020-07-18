@@ -40,6 +40,16 @@ jobs:
     - name : install kotlin 
       run: sudo snap install --classic kotlin
 
+    # set up J
+    - name : install J
+      run : |
+        curl https://www.jsoftware.com/download/j901/install/j901_amd64.deb > j901_amd64.deb
+        sudo apt install ./j901_amd64.deb
+
+    # set up ChezScheme
+    - name : install ChezScheme
+      run : sudo apt install chezscheme
+
     # Runs the main script script
     - name: Run script
       run: ./run.sh
