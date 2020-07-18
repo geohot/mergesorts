@@ -62,3 +62,6 @@ ruby mergesort.rb
 
 printf "\n Running the R version"
 Rscript mergesort.r
+
+printf "\n Running the Elixir version"
+elixir mergesort.exs
