@@ -39,6 +39,12 @@ rm -f mergesort && go build mergesort.go && ./mergesort
 echo "Running the OCaml version"
 rm -f mergesort && ocamlc mergesort.ml -o mergesort && ./mergesort
 
+echo "Running the C# version"
+csc mergesort.cs && mergesort
+
+echo "Running the Kotlin version"
+kotlin mergesort.kt -include-runtime -d mergesort.jar && java -jar mergesort
+
 echo "Running the Prolog version"
 rm -f mergesort && swipl -g main --stand_alone=true -o mergesort -c mergesort.pro && ./mergesort
 
