@@ -13,6 +13,7 @@ This is a project that is here to demonstrate different implementations of the [
   * Rust
   * [J](https://code.jsoftware.com/wiki/System/Installation)
   * [ChezScheme](https://cisco.github.io/ChezScheme/)
+  * Ruby
   
  ## Running all of the versions
  
