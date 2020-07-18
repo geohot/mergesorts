@@ -40,7 +40,7 @@ echo "Running the OCaml version"
 rm -f mergesort && ocamlc mergesort.ml -o mergesort && ./mergesort
 
 echo "Running the Swift version"
-chmod +x mergesort.swift && ./mergesort.swift
+rm -f mergesort && swiftc mergesort.swift -o mergesort && ./mergesort
 
 echo "Running the Bash version"
 bash mergesort.sh
