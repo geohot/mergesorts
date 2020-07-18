@@ -43,7 +43,7 @@ printf "\nRunning the Bash version : \n"
 bash mergesort.sh
 
 printf "\nRunning the C# version : \n"
-csc mergesort.cs && mergesort
+rm -f mergesort && csc mergesort.cs && ./mergesort
 
 printf "\nRunning the Kotlin version : \n"
 kotlin mergesort.kt -include-runtime -d mergesort.jar && java -jar mergesort
