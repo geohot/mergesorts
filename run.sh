@@ -13,7 +13,7 @@ echo "Running the Rust version"
 rm -f mergesort && rustc mergesort.rs && ./mergesort
 
 echo "Running the Java version"
-rm -f Mergesort && javac Mergesort.java && java Mergesort
+rm -f mergesort && javac mergesort.java && java mergesort
 
 echo "Running the Javascript version"
 rhino mergesort.js
@@ -44,3 +44,6 @@ mcs -out mergesort.exe mergesort.cs && mono mergesort.exe
 
 echo "Running the Swift version"
 chmod +x mergesort.swift && ./mergesort.swift
+
+echo "Running the Ruby version"
+ruby mergesort.rb
