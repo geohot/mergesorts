@@ -39,13 +39,9 @@ rm -f mergesort && go build mergesort.go && ./mergesort
 echo "Running the OCaml version"
 rm -f mergesort && ocamlc mergesort.ml -o mergesort && ./mergesort
 
-
-echo "Running the CSharp version"
-mcs -out mergesort.exe mergesort.cs && mono mergesort.exe
-
 echo "Running the Swift version"
 chmod +x mergesort.swift && ./mergesort.swift
-=======
+
 echo "Running the Bash version"
 bash mergesort.sh
 
@@ -63,7 +59,6 @@ jconsole mergesort.ijs
 
 echo "Running the Scheme version"
 scheme --script mergesort.ss
-
 
 echo "Running the Ruby version"
 ruby mergesort.rb
