@@ -6,7 +6,7 @@ rm -f a.out && gcc mergesort.c && ./a.out
 printf "\n Running the Python version"
 python3 mergesort.py
 
-printf "\n Running the haskell version"
+printf "\n Running the Haskell version"
 rm -f mergesort && ghc mergesort.hs && ./mergesort
 
 printf "\n Running the Rust version"
@@ -52,7 +52,7 @@ printf "\n Running the Prolog version"
 rm -f mergesort && swipl -g main --stand_alone=true -o mergesort -c mergesort.pro && ./mergesort
 
 printf "\n Running the J version"
-jconsole mergesort.ijs
+ijconsole mergesort.ijs
 
 printf "\n Running the Scheme version"
 scheme --script mergesort.ss
@@ -60,5 +60,5 @@ scheme --script mergesort.ss
 printf "\n Running the Ruby version"
 ruby mergesort.rb
 
-printf "Running the R version"
+printf "\n Running the R version"
 Rscript mergesort.r
