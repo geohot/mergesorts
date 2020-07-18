@@ -38,3 +38,6 @@ rm -f mergesort && go build mergesort.go && ./mergesort
 
 echo "Running the OCaml version"
 rm -f mergesort && ocamlc mergesort.ml -o mergesort && ./mergesort
+
+echo "Running the Ruby version"
+ruby mergesort.rb
