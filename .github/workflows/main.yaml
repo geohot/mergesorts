@@ -68,6 +68,10 @@ jobs:
     - name : install Coq
       run : sudo apt install coq
       
+    # set up LUA
+    - name : install LUA
+      run : sudo apt install lua5.3
+
     # Runs the main script script
     - name: Run script
       run: ./run.sh
