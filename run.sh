@@ -26,7 +26,7 @@ printf "\nRunning the Scala version : \n"
 scala mergesort.scala 
 
 printf "\nRunning the C++ version : \n"
-rm -f mergesort && g++ -std=c++17 mergesort.cpp && ./a.out
+rm -f a.out && g++ -std=c++17 mergesort.cpp && ./a.out
 
 printf "\nRunning the Julia version : \n"
 julia mergesort.jl
