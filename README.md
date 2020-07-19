@@ -2,7 +2,7 @@
 
 Are you tired of unsorted arrays? Do you wanna smash your keyboard when you see the array:
 
-<br>>:facepunch::construction::hear_no_evil:[5,9,1,3,4,6,6,3,2]:facepunch::construction::hear_no_evil:<br>
+> :facepunch::construction::hear_no_evil:[5,9,1,3,4,6,6,3,2]:facepunch::construction::hear_no_evil:<br>
 
 Well look no further! We provide the Number One leading industry proven AI :fireworks: Decentralized :pager: Language-Agnostic Mergesort Solutions<br>
 <br>
