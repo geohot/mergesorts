@@ -37,10 +37,6 @@ jobs:
     - name : install swi-prolog 
       run: sudo apt install swi-prolog
 
-    # set up kotlin
-    - name : install kotlin 
-      run: sudo snap install --classic kotlin
-
     # set up J
     - name : install J
       run : |
@@ -59,7 +55,6 @@ jobs:
     - name : install R
       run : sudo apt install r-base-core
 
-      
     # Runs the main script script
     - name: Run script
       run: ./run.sh

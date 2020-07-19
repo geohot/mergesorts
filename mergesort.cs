@@ -1,36 +1,26 @@
+//https://www.w3resource.com/csharp-exercises/searching-and-sorting-algorithm/searching-and-sorting-algorithm-exercise-7.php
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace Merge_sort
-{    
+{
     class Program
     {
         static void Main(string[] args)
         {
-            List<int> unsorted = new List<int>();
+            List<int> unsorted = new List<int> { 5, 9, 1, 3, 4, 6, 6, 3, 2 };
             List<int> sorted;
-
-            Random random = new Random();
-
-            Console.WriteLine("Original array elements:" );
-            for(int i = 0; i< 10;i++){
-                unsorted.Add(random.Next(0,100));
-                Console.Write(unsorted[i]+" ");
-            }
-            Console.WriteLine();
 
             sorted = MergeSort(unsorted);
 
-            Console.WriteLine("Sorted array elements: ");
             foreach (int x in sorted)
             {
-                Console.Write(x+" ");
+                Console.Write(x + " ");
             }
-			Console.Write("\n");
+            Console.Write("\n");
         }
-		
 
         private static List<int> MergeSort(List<int> unsorted)
         {
@@ -41,7 +31,7 @@ namespace Merge_sort
             List<int> right = new List<int>();
 
             int middle = unsorted.Count / 2;
-            for (int i = 0; i < middle;i++)  //Dividing the unsorted list
+            for (int i = 0; i < middle; i++)  //Dividing the unsorted list
             {
                 left.Add(unsorted[i]);
             }
@@ -59,7 +49,7 @@ namespace Merge_sort
         {
             List<int> result = new List<int>();
 
-            while(left.Count > 0 || right.Count>0)
+            while (left.Count > 0 || right.Count > 0)
             {
                 if (left.Count > 0 && right.Count > 0)
                 {
@@ -74,7 +64,7 @@ namespace Merge_sort
                         right.Remove(right.First());
                     }
                 }
-                else if(left.Count>0)
+                else if (left.Count > 0)
                 {
                     result.Add(left.First());
                     left.Remove(left.First());
@@ -83,8 +73,8 @@ namespace Merge_sort
                 {
                     result.Add(right.First());
 
-                    right.Remove(right.First());    
-                }    
+                    right.Remove(right.First());
+                }
             }
             return result;
         }
