@@ -57,7 +57,7 @@ jobs:
 
     # set up Dart
     - name : install dart
-      run : sudo apt install dart
+      run : sudo apt-get install libdart6-dev
       
     # Runs the main script script
     - name: Run script
