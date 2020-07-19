@@ -21,14 +21,7 @@ const mergesort = (arr: number[]): number[] => {
     }
   }
 
-  while (left.length) {
-    result.push(left.shift())
-  }
-  while (right.length) {
-    result.push(right.shift())
-  }
-
-  return result
+  return [...result, ...left, ...right]
 }
 
 const array = [5, 9, 1, 3, 4, 6, 6, 3, 2]
