@@ -63,6 +63,10 @@ jobs:
         sudo sh -c 'wget -qO- https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
         sudo apt-get update
         sudo apt-get install dart
+
+    # set up Coq
+    - name : install Coq
+      run : sudo apt install coq
       
     # Runs the main script script
     - name: Run script

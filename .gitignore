@@ -9,6 +9,11 @@ Mergesort
 *.cmi
 *.cmo
 
+## Coq files
+mergesort.glob
+mergesort.vo
+.mergesort.aux
+
 ## Intelij Files
 *.iml
 .idea

@@ -70,6 +70,9 @@ elixir mergesort.exs
 printf "\nRunning the Dart Version : \n"
 dart mergesort.dart
 
+printf "\nRunning the Coq Version : \n"
+coqc mergesort.v
+
 end=`date +%s`
 runtime=$((end-start))
 echo "$runtime"
