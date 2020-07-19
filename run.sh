@@ -74,7 +74,7 @@ printf "\nRunning the Coq Version : \n"
 coqc mergesort.v
 
 printf "\nRunning the LUA Version : \n"
-lua mergesort.lua
+lua5.3 mergesort.lua
 
 end=`date +%s`
 runtime=$((end-start))
