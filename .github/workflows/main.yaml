@@ -67,6 +67,10 @@ jobs:
     # set up Coq
     - name : install Coq
       run : sudo apt install coq
+
+    # set up TypeScript
+    - name : install TypeScript
+      run : npm install typescript
       
     # Runs the main script script
     - name: Run script
