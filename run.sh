@@ -73,6 +73,9 @@ dart mergesort.dart
 printf "\nRunning the Coq Version : \n"
 coqc mergesort.v
 
+printf "\nRunning the LUA Version : \n"
+lua mergesort.lua
+
 end=`date +%s`
 runtime=$((end-start))
 echo "$runtime"
