@@ -73,6 +73,9 @@ dart mergesort.dart
 printf "\nRunning the Coq Version : \n"
 coqc mergesort.v
 
+printf "\nRunning the TypeScript version : \n"
+rm -rf out && tsc mergesort.ts --outDir out && node mergesort.js
+
 end=`date +%s`
 runtime=$((end-start))
 echo "$runtime"
