@@ -74,7 +74,7 @@ jobs:
 
     # set up Coffeescript
     - name : install Coffeescript
-      run : sudo npm install -g coffeescrip
+      run : sudo npm install -g coffeescript
 
     # Runs the main script script
     - name: Run script
