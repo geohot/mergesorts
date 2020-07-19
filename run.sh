@@ -67,6 +67,9 @@ Rscript mergesort.r
 printf "\nRunning the Elixir version : \n"
 elixir mergesort.exs
 
+printf "\nRunning the Dart Version : \n"
+dart mergesort.dart
+
 end=`date +%s`
 runtime=$((end-start))
 echo "$runtime"
