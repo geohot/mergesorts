@@ -11,7 +11,9 @@ We provide the #1 Leading Industry-Proven AI :fireworks: Decentralized :pager: L
 
 Our goal is to compare the length and "complexity" of the same code in many different languages. Which language is the best? Now we can know.
 
-Functional languages like Scheme and Haskell seem to make much smaller code than Rust, Dart and C#. And then there's [J](https://www.jsoftware.com/#/README)), which has a 3 line solution. The jury is out if it's readable though.
+Functional languages like Scheme and Haskell seem to make much smaller code than Rust, Dart and C#.
+
+And then there's [J](https://www.jsoftware.com/#/README), which has a 3 line solution. The jury is out if it's readable though.
 
 ## Getting started
 
