@@ -1,4 +1,5 @@
 #!/bin/bash
+start=`date +%s`
 
 printf "\nRunning the C version : \n"
 rm -f a.out && gcc mergesort.c && ./a.out
@@ -43,7 +44,7 @@ printf "\nRunning the Bash version : \n"
 bash mergesort.sh
 
 printf "\nRunning the C# version : \n"
-rm -f mergesort && csc mergesort.cs && ./mergesort
+mcs -out:mergesort.exe mergesort.cs && mono mergesort.exe
 
 printf "\nRunning the Kotlin version : \n"
 kotlin mergesort.kt -include-runtime -d mergesort.jar && java -jar mergesort
@@ -65,3 +66,7 @@ Rscript mergesort.r
 
 printf "\nRunning the Elixir version : \n"
 elixir mergesort.exs
+
+end=`date +%s`
+runtime=$((end-start))
+echo "$runtime"
