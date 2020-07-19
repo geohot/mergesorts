@@ -77,7 +77,7 @@ printf "\nRunning the LUA Version : \n"
 lua5.3 mergesort.lua
 
 printf "\nRunning the Coffeescript version : \n"
-coffee mergesort.coffe
+coffee mergesort.coffee
 
 end=`date +%s`
 runtime=$((end-start))
