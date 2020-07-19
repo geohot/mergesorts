@@ -26,12 +26,11 @@ Program Fixpoint mergesort (x : list nat) {measure (length x)}: list nat :=
   | x :: y :: nil => if x <? y
     then (x :: y :: nil)
     else (y :: x :: nil)
-  | rest => 
-    let p := (Nat.div2 (length rest)) in
-    merge (mergesort (firstn p x)) (mergesort (skipn p x))
+  | x :: y :: z :: rest => 
+    let a := (x :: y :: z :: rest) in 
+    let p := (Nat.div2 (length a)) in
+    merge (mergesort (firstn p a)) (mergesort (skipn p a))
   end.
-Next Obligation.
-Admitted.
 Next Obligation.
 Admitted.
 Next Obligation.
