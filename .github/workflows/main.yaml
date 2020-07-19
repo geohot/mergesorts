@@ -55,6 +55,10 @@ jobs:
     - name : install R
       run : sudo apt install r-base-core
 
+    # set up Dart
+    - name : install dart
+      run : sudo apt install dart
+      
     # Runs the main script script
     - name: Run script
       run: ./run.sh
