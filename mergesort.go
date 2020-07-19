@@ -3,31 +3,32 @@ package main
 import "fmt"
 
 func mergesort(arr []int) []int {
-	if len(arr) <= 1 {
+	arrLen := len(arr)
+	if arrLen <= 1 {
 		return arr
 	}
 
-	left := []int(arr[0 : len(arr)/2])
-	right := []int(arr[len(arr)/2:])
+	mid := arrLen / 2
+	left := []int(arr[0:mid])
+	right := []int(arr[mid:])
 
 	left = mergesort(left)
 	right = mergesort(right)
 
 	arr = make([]int, len(left)+len(right))
-	j, k := 0, 0
+	var j, k int
 	for i := 0; i < len(arr); i++ {
-		if j >= len(left) {
+		switch {
+		case j >= len(left):
 			arr[i] = right[k]
 			k++
-			continue
-		} else if k >= len(right) {
+		case k >= len(right):
 			arr[i] = left[j]
 			j++
-			continue
-		} else if left[j] > right[k] {
+		case left[j] > right[k]:
 			arr[i] = right[k]
 			k++
-		} else {
+		default:
 			arr[i] = left[j]
 			j++
 		}
