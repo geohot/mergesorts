@@ -2,11 +2,7 @@ def mergesort(a)
   if a.length == 1
     return a
   elsif a.length == 2
-    if a[0] > a[1]
-      return [a[1], a[0]]
-    else
-      return a
-    end
+    return a[0] > a[1] ? [a[1], a[0]] : a
   end
 
   p = a.length/2
@@ -14,26 +10,16 @@ def mergesort(a)
   m2 = mergesort(a.drop(p))
 
   ret = []
-  while 1
-    if m1.length > 0 and m2.length > 0
-      if m1[0] <= m2[0]
-        ret << m1[0]
+  while m1.length > 0 or m2.length > 0
+     if m2.first.nil? or (!m1.first.nil? and m1.first <= m2.first)
+        ret << m1.first
         m1 = m1.drop(1)
-      else
-        ret << m2[0]
+     elsif m1.first.nil? or (!m2.first.nil? and m2.first <= m1.first)
+        ret << m2.first
         m2 = m2.drop(1)
       end
-    elsif m1.length > 0
-      ret += m1
-      m1 = []
-    elsif m2.length > 0
-      ret += m2
-      m2 = []
-    else
-      break
     end
-  end
-  return ret
+  ret
 end
 
 

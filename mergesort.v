@@ -32,8 +32,34 @@ Program Fixpoint mergesort (x : list nat) {measure (length x)}: list nat :=
     merge (mergesort (firstn p a)) (mergesort (skipn p a))
   end.
 Next Obligation.
-Admitted.
+  rewrite firstn_length.
+  simpl.
+  apply lt_n_S.
+  apply Nat.min_lt_iff.
+  left.
+  destruct (length rest).
+  auto.
+  apply lt_n_S.
+  destruct n.
+  auto.
+  rewrite Nat.lt_div2.
+  auto.
+  apply Nat.lt_0_succ.
+Qed.
 Next Obligation.
-Admitted.
+  rewrite skipn_length.
+  simpl.
+  destruct (length rest).
+  auto.
+  destruct Nat.div2.
+  auto.
+  rewrite Nat.lt_succ_r.
+  rewrite Nat.le_succ_r.
+  left.
+  rewrite Nat.le_succ_r.
+  left.
+  rewrite Nat.le_sub_le_add_r.
+  apply le_plus_l.
+Qed.
 
 Eval compute in mergesort (5::9::1::3::4::6::6::3::2::nil).
