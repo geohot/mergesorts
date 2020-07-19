@@ -1,7 +1,6 @@
 Require Export Coq.Lists.List.
 Require Export Coq.Arith.Arith.
 Require Import Program.Wf.
-Require Import Omega.
 
 Program Fixpoint merge (x : list nat) (y : list nat) {measure (length x + length y)} : list nat :=
   match x with
@@ -54,7 +53,13 @@ Next Obligation.
   auto.
   destruct Nat.div2.
   auto.
-  omega.
+  rewrite Nat.lt_succ_r.
+  rewrite Nat.le_succ_r.
+  left.
+  rewrite Nat.le_succ_r.
+  left.
+  rewrite Nat.le_sub_le_add_r.
+  apply le_plus_l.
 Qed.
 
 Eval compute in mergesort (5::9::1::3::4::6::6::3::2::nil).
