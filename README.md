@@ -4,9 +4,14 @@ Are you tired of unsorted arrays? Do you wanna smash your keyboard when you see 
 
 > :facepunch::construction::hear_no_evil:[5,9,1,3,4,6,6,3,2]:facepunch::construction::hear_no_evil:<br>
 
-Well look no further! We provide the #1 Leading Industry-Proven AI :fireworks: Decentralized :pager: Language-Agnostic :sunglasses:  Mergesort Solutions<br>
-<br>
-:raising_hand:Why mergesort?? Idiotic question. Thank me later for vastly improving your life.
+Well look no further!<br/>
+We provide the #1 Leading Industry-Proven AI :fireworks: Decentralized :pager: Language-Agnostic :sunglasses:  Mergesort Solutions<br>
+
+## More seriously
+
+Our goal is to compare the length and "complexity" of the same code in many different languages. Which language is the best? Now we can know
+
+## Getting started
 
 Don't know [merge sort algorithm](https://en.wikipedia.org/wiki/Merge_sort).<br>
 Pick up a [programming language](https://en.wikipedia.org/wiki/List_of_programming_languages) and try to implement it yourself
