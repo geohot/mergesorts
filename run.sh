@@ -76,6 +76,9 @@ coqc mergesort.v
 printf "\nRunning the LUA Version : \n"
 lua5.3 mergesort.lua
 
+printf "\nRunning the TypeScript version : \n"
+tsc mergesort.ts --outDir out && node mergesort.js
+
 printf "\nRunning the Coffeescript version : \n"
 coffee mergesort.coffee
 
