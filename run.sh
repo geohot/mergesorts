@@ -82,6 +82,9 @@ tsc mergesort.ts --outDir out && node mergesort.js
 printf "\nRunning the Coffeescript version : \n"
 coffee mergesort.coffee
 
+printf "\nRunning the Swift version : \n"
+swift mergesort.swift
+
 printf "\nRunning the F# version : \n"
 dotnet fsi mergesort.fsx
 
