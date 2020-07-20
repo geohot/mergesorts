@@ -88,6 +88,9 @@ swift mergesort.swift
 printf "\nRunning the F# version : \n"
 dotnet fsi mergesort.fsx
 
+printf "\nRunning the ATS version : \n"
+myatscc mergesort.dats && ./mergesort_dats
+
 end=`date +%s`
 runtime=$((end-start))
 echo "$runtime"

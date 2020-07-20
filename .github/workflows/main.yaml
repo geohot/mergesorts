@@ -15,7 +15,9 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: update packages
-      run: sudo apt update
+      run: |
+        sudo echo "deb [trusted=yes] http://ftp.de.debian.org/debian sid main" | sudo tee -a /etc/apt/sources.list
+        sudo apt update
 
     # set up scala
     - name: install scala
@@ -92,6 +94,10 @@ jobs:
         source  ~/.bashrc
         rm swift-4.2.1-RELEASE-ubuntu18.04.tar.gz
 
-    # Runs the main script script
+    # set up ATS
+    - name : install ATS
+      run : sudo apt install ats2-lang gcc
+
+   # Runs the main script script
     - name: Run script
       run: ./run.sh
