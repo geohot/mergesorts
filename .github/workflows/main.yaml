@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     timeout-minutes: 30
 
     steps:
@@ -96,6 +96,10 @@ jobs:
     - name : install Kotlin
       run : sudo snap install --classic kotlin
 
-    # Runs the main script script
+    # set up ATS
+    - name : install ATS
+      run : sudo apt install ats2-lang gcc
+
+   # Runs the main script script
     - name: Run script
       run: ./run.sh
