@@ -43,4 +43,5 @@ signed main() {
     for (int f: a){
         cout << f << " ";
     }
+    cout << endl; 
 }

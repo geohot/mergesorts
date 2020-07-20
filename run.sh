@@ -2,7 +2,7 @@
 start=`date +%s`
 
 printf "\nRunning the C version : \n"
-rm -f a.out && gcc mergesort.c && ./a.out
+rm -f a.out && gcc mergesort.c && ./a.out && rm -f a.out
 
 printf "\nRunning the Python version : \n"
 python3 mergesort.py
@@ -26,7 +26,7 @@ printf "\nRunning the Scala version : \n"
 scala mergesort.scala 
 
 printf "\nRunning the C++ version : \n"
-rm -f mergesort && g++ -std=c++17 mergesort.cpp && ./a.out
+g++ -std=c++17 mergesort.cpp && ./a.out && rm -f a.out
 
 printf "\nRunning the Julia version : \n"
 julia mergesort.jl
