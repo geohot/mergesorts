@@ -22,7 +22,7 @@ fun {a:t@ype} mergesort {n:nat}
 ( xs:list(a,n), n:int n, cmp:(a,a)->bool ) : list(a,n) =
 if n < 2 then xs
   else let val (xs,ys) = chop(xs,n)
-       	   val sx = mergesort (xs,n/2,cmp)
+           val sx = mergesort (xs,n/2,cmp)
            val sy = mergesort (ys,n-n/2,cmp)
         in merge(sx,sy,cmp) end
 
