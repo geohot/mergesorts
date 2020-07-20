@@ -91,6 +91,9 @@ dotnet fsi mergesort.fsx
 printf "\nRunning the ATS version : \n"
 myatscc mergesort.dats && ./mergesort_dats
 
+printf "\nRunning the Objective C version : \n"
+clang -fobjc-arc -framework Foundation mergesort.m -o mergesort && ./mergesort
+
 end=`date +%s`
 runtime=$((end-start))
 echo "$runtime"
