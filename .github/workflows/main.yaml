@@ -71,6 +71,21 @@ jobs:
     # set up LUA
     - name : install LUA
       run : sudo apt install lua5.3
+    
+    #set up Swift
+    - name : install Swift 
+      run : |
+	sudo apt-get install clang
+	sudo apt-get install libcurl3 libpython2.7 libpython2.7-dev 
+	wget https://swift.org/builds/swift-4.2.1-release/ubuntu1804/swift-4.2.1-RELEASE/swift-4.2.1-RELEASE-ubuntu18.04.tar.gz
+	tar xzf swift-5.0-RELEASE-ubuntu18.04.tar.gz
+	sudo mv swift-4.2.1-RELEASE-ubuntu18.04 /usr/share/swift
+	echo "export PATH=/usr/share/swift/usr/bin:$PATH" >> ~/.bashrc
+	source  ~/.bashrc
+	rm swift-5.0-RELEASE-ubuntu18.04.tar.gz
+	
+	
+    
 
     # Runs the main script script
     - name: Run script
