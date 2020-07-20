@@ -92,6 +92,10 @@ jobs:
         source  ~/.bashrc
         rm swift-4.2.1-RELEASE-ubuntu18.04.tar.gz
 
+    # set up Kotlin
+    - name : install Kotlin
+      run : sudo snap install --classic kotlin
+
     # Runs the main script script
     - name: Run script
       run: ./run.sh
