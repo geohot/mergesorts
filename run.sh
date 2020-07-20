@@ -62,7 +62,7 @@ printf "\nRunning the Ruby version : \n"
 ruby mergesort.rb
 
 printf "\nRunning the R version : \n"
-/usr/bin/Rscript mergesort.r
+/usr/local/bin/R --slave -f mergesort.r 
 
 printf "\nRunning the Elixir version : \n"
 elixir mergesort.exs
