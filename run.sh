@@ -93,4 +93,5 @@ myatscc mergesort.dats && ./mergesort_dats
 
 end=`date +%s`
 runtime=$((end-start))
-echo "$runtime"
+printf "\n"
+echo "Script ran in $runtime seconds"
