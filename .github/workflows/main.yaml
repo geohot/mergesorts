@@ -83,10 +83,7 @@ jobs:
         echo "export PATH=/usr/share/swift/usr/bin:$PATH" >> ~/.bashrc
         source  ~/.bashrc
         rm swift-5.0-RELEASE-ubuntu18.04.tar.gz
-	
-	
-    
-
+        
     # Runs the main script script
     - name: Run script
       run: ./run.sh
