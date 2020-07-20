@@ -53,7 +53,7 @@ jobs:
 
     # set up R
     - name : install R
-      run : sudo apt install r-base-core && which Rscript
+      run : sudo apt -y install r-base && which Rscript
 
     # set up Dart
     - name : install dart
