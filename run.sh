@@ -47,7 +47,7 @@ printf "\nRunning the C# version : \n"
 mcs -out:mergesort.exe mergesort.cs && mono mergesort.exe
 
 printf "\nRunning the Kotlin version : \n"
-kotlin mergesort.kt -include-runtime -d mergesort.jar && java -jar mergesort
+kotlinc mergesort.kt -include-runtime -d mergesort.jar && java -jar mergesort.jar
 
 printf "\nRunning the Prolog version : \n"
 rm -f mergesort && swipl -g main --stand_alone=true -o mergesort -c mergesort.pro && ./mergesort
