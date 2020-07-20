@@ -88,6 +88,10 @@ jobs:
     - name : install ATS
       run : sudo apt install ats2-lang gcc
 
+    # set up TCL
+    - name : install Tcl
+      run : sudo apt install tcl
+
    # Runs the main script script
     - name: Run script
       run: ./run.sh
