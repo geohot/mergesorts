@@ -85,6 +85,9 @@ coffee mergesort.coffee
 printf "\nRunning the Swift version : \n"
 swift mergesort.swift
 
+printf "\nRunning the F# version : \n"
+dotnet fsi mergesort.fsx
+
 end=`date +%s`
 runtime=$((end-start))
 echo "$runtime"
