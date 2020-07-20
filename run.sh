@@ -88,6 +88,9 @@ swift mergesort.swift
 printf "\nRunning the F# version : \n"
 dotnet fsi mergesort.fsx
 
+printf "\nRunning the MATLAB version : \n"
+matlab -nodesktop -nojvm -nosplash -log -wait -r 'mergesort;exit;'
+
 end=`date +%s`
 runtime=$((end-start))
 echo "$runtime"
