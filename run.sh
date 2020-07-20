@@ -79,6 +79,9 @@ lua5.3 mergesort.lua
 printf "\nRunning the TypeScript version : \n"
 tsc mergesort.ts --outDir out && node mergesort.js
 
+printf "\nRunning the Coffeescript version : \n"
+coffee mergesort.coffee
+
 end=`date +%s`
 runtime=$((end-start))
 echo "$runtime"

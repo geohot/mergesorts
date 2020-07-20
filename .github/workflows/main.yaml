@@ -76,6 +76,10 @@ jobs:
     - name : install LUA
       run : sudo apt install lua5.3
 
+    # set up Coffeescript
+    - name : install Coffeescript
+      run : sudo npm install -g coffeescript
+
     # Runs the main script script
     - name: Run script
       run: ./run.sh
