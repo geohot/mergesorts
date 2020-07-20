@@ -76,6 +76,9 @@ coqc mergesort.v
 printf "\nRunning the LUA Version : \n"
 lua5.3 mergesort.lua
 
+printf "\nRunning the Swift Version : \n"
+swift mergesort.swift
+
 end=`date +%s`
 runtime=$((end-start))
 echo "$runtime"
