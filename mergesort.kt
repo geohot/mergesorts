@@ -37,8 +37,7 @@ fun merge(left: List<Int>, right: List<Int>): List<Int>  {
 }
 
 fun main(args: Array<String>) {
-    val numbers = mutableListOf(38,27,43,3,9,82,10)
+    val numbers = mutableListOf(5, 9, 1, 3, 4, 6, 6, 3, 2)
     val sortedList = mergeSort(numbers)
-    println("Unsorted: $numbers")
-    println("Sorted: $sortedList")
+    println("$sortedList")
 }
