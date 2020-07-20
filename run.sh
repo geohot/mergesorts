@@ -23,7 +23,7 @@ printf "\nRunning the PHP version : \n"
 php mergesort.php
 
 printf "\nRunning the Scala version : \n"
-scala mergesort.scala 
+scala -nc mergesort.scala
 
 printf "\nRunning the C++ version : \n"
 g++ -std=c++17 mergesort.cpp && ./a.out && rm -f a.out
@@ -87,6 +87,9 @@ swift mergesort.swift
 
 printf "\nRunning the F# version : \n"
 dotnet fsi mergesort.fsx
+
+printf "\nRunning the ATS version : \n"
+myatscc mergesort.dats && ./mergesort_dats
 
 end=`date +%s`
 runtime=$((end-start))
