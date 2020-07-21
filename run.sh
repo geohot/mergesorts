@@ -96,4 +96,5 @@ clang -fobjc-arc -framework Foundation mergesort.m -o mergesort && ./mergesort
 
 end=`date +%s`
 runtime=$((end-start))
-echo "$runtime"
+printf "\n"
+echo "Script ran in $runtime seconds"
