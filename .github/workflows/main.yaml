@@ -88,6 +88,9 @@ jobs:
     - name : install ATS
       run : sudo apt install ats2-lang gcc
 
+    - name : install DLang
+      run : sudo snap install dmd --classic
+
    # Runs the main script script
     - name: Run script
       run: ./run.sh
