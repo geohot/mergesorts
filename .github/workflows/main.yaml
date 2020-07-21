@@ -53,7 +53,7 @@ jobs:
 
     # set up R
     - name : install R
-      run : sudo apt install r-base-core
+      run : sudo apt -y install r-base-core
 
     # set up Dart
     - name : install dart
@@ -84,9 +84,21 @@ jobs:
     - name : install Swift 
       run : sudo apt install swift
 
+    # set up Kotlin
+    - name : install Kotlin
+      run : sudo snap install --classic kotlin
+
     # set up ATS
     - name : install ATS
       run : sudo apt install ats2-lang gcc
+      
+    # set up Brainfuck
+    - name : install bf
+      run : sudo apt install bf
+
+    # set up TCL
+    - name : install Tcl
+      run : sudo apt install tcl
 
     - name : install DLang
       run : sudo snap install dmd --classic
