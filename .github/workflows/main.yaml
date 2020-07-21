@@ -100,6 +100,9 @@ jobs:
     - name : install Tcl
       run : sudo apt install tcl
 
+    - name : install DLang
+      run : sudo snap install dmd --classic
+
    # Runs the main script script
     - name: Run script
       run: ./run.sh

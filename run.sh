@@ -91,6 +91,9 @@ dotnet fsi mergesort.fsx
 printf "\nRunning the ATS version : \n"
 myatscc mergesort.dats && ./mergesort_dats
 
+printf "\nRunning the D Lang version : \n"
+rdmd mergesort.d
+
 printf "\nRunning the Brainfuck version : \n"
 bf mergesort.b
 
