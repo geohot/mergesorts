@@ -87,6 +87,10 @@ jobs:
     # set up ATS
     - name : install ATS
       run : sudo apt install ats2-lang gcc
+      
+    # set up Brainfuck
+    - name : install bf
+      run : sudo apt install bf
 
    # Runs the main script script
     - name: Run script
