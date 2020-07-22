@@ -1,109 +1,109 @@
 #!/bin/bash
 start=`date +%s`
 
-printf "\nRunning the C version : \n"
+echo -e "\e[90mRunning the C version : "
 rm -f a.out && gcc mergesort.c && ./a.out && rm -f a.out
 
-printf "\nRunning the Python version : \n"
+echo -e "\e[34mRunning the Python version : "
 python3 mergesort.py
 
-printf "\nRunning the Haskell version : \n"
+echo -e "\e[37mRunning the Haskell version : "
 rm -f mergesort && ghc mergesort.hs && ./mergesort
 
-printf "\nRunning the Rust version : \n"
+echo -e "\e[91mRunning the Rust version : "
 rm -f mergesort && rustc mergesort.rs && ./mergesort
 
-printf "\nRunning the Java version : \n"
+echo -e "\e[31mRunning the Java version : "
 rm -f mergesort && javac mergesort.java && java mergesort
 
-printf "\nRunning the Javascript version : \n"
+echo -e "\e[33mRunning the JavaScript version : "
 node mergesort.js
 
-printf "\nRunning the PHP version : \n"
+echo -e "\e[35mRunning the PHP version : "
 php mergesort.php
 
-printf "\nRunning the Scala version : \n"
+echo -e "\e[91mRunning the Scala version : "
 scala -nc mergesort.scala
 
-printf "\nRunning the C++ version : \n"
+echo -e "\e[95mRunning the C++ version : "
 g++ -std=c++17 mergesort.cpp && ./a.out && rm -f a.out
 
-printf "\nRunning the Julia version : \n"
+echo -e "\e[34mRunning the Julia version : "
 julia mergesort.jl
 
-printf "\nRunning the Perl version : \n"
+echo -e "\e[35mRunning the Perl version : "
 perl mergesort.pl
 
-printf "\nRunning the Go version : \n"
+echo -e "\e[94mRunning the Go version : "
 rm -f mergesort && go build mergesort.go && ./mergesort
 
-printf "\nRunning the OCaml version : \n"
+echo -e "\e[37mRunning the OCaml version : "
 rm -f mergesort && ocamlc mergesort.ml -o mergesort && ./mergesort
 
-printf "\nRunning the Bash version : \n"
+echo -e "\e[34mRunning the Bash version : "
 bash mergesort.sh
 
-printf "\nRunning the C# version : \n"
+echo -e "\e[92mRunning the C# version : "
 mcs -out:mergesort.exe mergesort.cs && mono mergesort.exe
 
-printf "\nRunning the Kotlin version : \n"
+echo -e "\e[93mRunning the Kotlin version : "
 kotlinc mergesort.kt -include-runtime -d mergesort.jar && java -jar mergesort.jar
 
-printf "\nRunning the Prolog version : \n"
+echo -e "\e[37mRunning the Prolog version : "
 rm -f mergesort && swipl -g main --stand_alone=true -o mergesort -c mergesort.pro && ./mergesort
 
-printf "\nRunning the J version : \n" 
+echo -e "\e[37mRunning the J version : "
 ijconsole mergesort.ijs
 
-printf "\nRunning the Scheme version : \n"
+echo -e "\e[93mRunning the Scheme version : "
 scheme --script mergesort.ss
 
-printf "\nRunning the Ruby version : \n"
+echo -e "\e[91mRunning the Ruby version : "
 ruby mergesort.rb
 
-printf "\nRunning the R version : \n"
+echo -e "\e[34mRunning the R version : "
 Rscript mergesort.r 
 
-printf "\nRunning the Elixir version : \n"
+echo -e "\e[95mRunning the Elixir version : "
 elixir mergesort.exs
 
-printf "\nRunning the Dart Version : \n"
+echo -e "\e[96mRunning the Dart version : "
 dart mergesort.dart
 
-printf "\nRunning the Coq Version : \n"
+echo -e "\e[37mRunning the Coq version : "
 coqc mergesort.v
 
-printf "\nRunning the LUA Version : \n"
+echo -e "\e[95mRunning the LUA version : "
 lua5.3 mergesort.lua
 
-printf "\nRunning the TypeScript version : \n"
+echo -e "\e[36mRunning the TypeScript version : "
 tsc mergesort.ts --outDir out && node mergesort.js
 
-printf "\nRunning the Coffeescript version : \n"
+echo -e "\e[91mRunning the CoffeeScript version : "
 coffee mergesort.coffee
 
-printf "\nRunning the Swift version : \n"
+echo -e "\e[93mRunning the Swift version : "
 swift mergesort.swift
 
-printf "\nRunning the F# version : \n"
+echo -e "\e[32mRunning the F# version : "
 dotnet fsi mergesort.fsx
 
-printf "\nRunning the ATS version : \n"
+echo -e "\e[37mRunning the ATS version : "
 myatscc mergesort.dats && ./mergesort_dats
 
-printf "\nRunning the D Lang version : \n"
+echo -e "\e[36mRunning the D Lang version : "
 rdmd mergesort.d
 
-printf "\nRunning the Brainfuck version : \n"
+echo -e "\e[90mRunning the Brainfuck version : "
 bf mergesort.b
 
-printf "\nRunning the TCL version : \n"
+echo -e "\e[94mRunning the TCL version : "
 tclsh mergesort.tcl
 
-printf "\nRunning the Objective C version : \n"
+echo -e "\e[32mRunning the Objective C version : "
 clang -fobjc-arc -framework Foundation mergesort.m -o mergesort && ./mergesort
 
-printf "\nRunning the Ada version : \n"
+echo -e "\e[34mRunning the Ada version : "
 rm -f mergesort.ali mergesort.o mergesort && gnatmake mergesort.adb && ./mergesort && rm -f mergesort.ali mergesort.o mergesort
 
 end=`date +%s`
