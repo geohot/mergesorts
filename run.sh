@@ -1,216 +1,200 @@
 #!/bin/bash
 start=`date +%s`
 
+
+declare -A command_storage
+
 elapsed_time() {
 	if [ "$1" -ge "$2" ]; then elapsed_ns=$(("$1"-"$2")); else elapsed_ns=$(("$2"-"$1")); fi
 	echo "Time elapsed : $(($elapsed_ns/1000000000)) s $(($elapsed_ns/1000000 - ($elapsed_ns/1000000000)*1000)) ms"
 }
 
-time_format=+%s%N
+run_all_commands() {
+	time_format=+%s%N
+	local -n commands=$1
+	for key in "${!commands[@]}"
+	do
+		printf "\nRunning the $key version : \n"
+		version_start=`date $time_format`
+		${commands[$key]}
+		version_end=`date $time_format`
+		if [ "$key" = "Ruby" ]; then printf "\n"; fi
+		elapsed_time "$version_start" "$version_end"
+	done
+}
 
-printf "\nRunning the C version : \n"
-version_start=`date $time_format`
-rm -f a.out && gcc mergesort.c && ./a.out && rm -f a.out
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_C() {
+	rm -f a.out && gcc mergesort.c && ./a.out && rm -f a.out
+}
+command_storage[C]=run_C
 
-printf "\nRunning the Python version : \n"
-version_start=`date $time_format`
-python3 mergesort.py
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_Python() {
+	python3 mergesort.py
+}
+command_storage[Python]=run_Python
 
-printf "\nRunning the Haskell version : \n"
-version_start=`date $time_format`
-rm -f mergesort && ghc mergesort.hs && ./mergesort
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_Haskell() {
+	rm -f mergesort && ghc mergesort.hs && ./mergesort
+}
+command_storage[Haskell]=run_Haskell
 
-printf "\nRunning the Rust version : \n"
-version_start=`date $time_format`
-rm -f mergesort && rustc mergesort.rs && ./mergesort
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_Rust() {
+	rm -f mergesort && rustc mergesort.rs && ./mergesort
+}
+command_storage[Rust]=run_Rust
 
-printf "\nRunning the Java version : \n"
-version_start=`date $time_format`
-rm -f mergesort && javac mergesort.java && java mergesort
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_Java() {
+	rm -f mergesort && javac mergesort.java && java mergesort
+}
+command_storage[Java]=run_Java
 
-printf "\nRunning the Javascript version : \n"
-version_start=`date $time_format`
-node mergesort.js
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_Javascript() {
+	node mergesort.js
+}
+command_storage[Javascript]=run_Javascript
 
-printf "\nRunning the PHP version : \n"
-version_start=`date $time_format`
-php mergesort.php
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_PHP() {
+	php mergesort.php
+}
+command_storage[PHP]=run_PHP
 
-printf "\nRunning the Scala version : \n"
-version_start=`date $time_format`
-scala -nc mergesort.scala
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_Scala() {
+	scala -nc mergesort.scala
+}
+command_storage[Scala]=run_Scala
 
-printf "\nRunning the C++ version : \n"
-version_start=`date $time_format`
-g++ -std=c++17 mergesort.cpp && ./a.out && rm -f a.out
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_C++() {
+	g++ -std=c++17 mergesort.cpp && ./a.out && rm -f a.out
+}
+command_storage[C++]=run_C++
 
-printf "\nRunning the Julia version : \n"
-version_start=`date $time_format`
-julia mergesort.jl
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_Julia() {
+	julia mergesort.jl
+}
+command_storage[Julia]=run_Julia
 
-printf "\nRunning the Perl version : \n"
-version_start=`date $time_format`
-perl mergesort.pl
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_Perl() {
+	perl mergesort.pl
+}
+command_storage[Perl]=run_Perl
 
-printf "\nRunning the Go version : \n"
-version_start=`date $time_format`
-rm -f mergesort && go build mergesort.go && ./mergesort
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_Go() {
+	rm -f mergesort && go build mergesort.go && ./mergesort
+}
+command_storage[Go]=run_Go
 
-printf "\nRunning the OCaml version : \n"
-version_start=`date $time_format`
-rm -f mergesort && ocamlc mergesort.ml -o mergesort && ./mergesort
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_OCaml() {
+	rm -f mergesort && ocamlc mergesort.ml -o mergesort && ./mergesort
+}
+command_storage[OCaml]=run_OCaml
 
-printf "\nRunning the Bash version : \n"
-version_start=`date $time_format`
-bash mergesort.sh
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_Bash() {
+	bash mergesort.sh
+}
+command_storage[Bash]=run_Bash
 
-printf "\nRunning the C# version : \n"
-version_start=`date $time_format`
-mcs -out:mergesort.exe mergesort.cs && mono mergesort.exe
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_C#() {
+	mcs -out:mergesort.exe mergesort.cs && mono mergesort.exe
+}
+command_storage[C#]=run_C#
 
-printf "\nRunning the Kotlin version : \n"
-version_start=`date $time_format`
-kotlinc mergesort.kt -include-runtime -d mergesort.jar && java -jar mergesort.jar
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_Kotlin() {
+	kotlinc mergesort.kt -include-runtime -d mergesort.jar && java -jar mergesort.jar
+}
+command_storage[Kotlin]=run_Kotlin
 
-printf "\nRunning the Prolog version : \n"
-version_start=`date $time_format`
-rm -f mergesort && swipl -g main --stand_alone=true -o mergesort -c mergesort.pro && ./mergesort
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_Prolog() {
+	rm -f mergesort && swipl -g main --stand_alone=true -o mergesort -c mergesort.pro && ./mergesort
+}
+command_storage[Prolog]=run_Prolog
 
-printf "\nRunning the J version : \n"
-version_start=`date $time_format`
-ijconsole mergesort.ijs
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_J() {
+	ijconsole mergesort.ijs
+}
+command_storage[J]=run_J
 
-printf "\nRunning the Scheme version : \n"
-version_start=`date $time_format`
-scheme --script mergesort.ss
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_Scheme() {
+	scheme --script mergesort.ss
+}
+command_storage[Scheme]=run_Scheme
 
-printf "\nRunning the Ruby version : \n"
-version_start=`date $time_format`
-ruby mergesort.rb
-version_end=`date $time_format`
-printf "\n"; elapsed_time "$version_start" "$version_end"
+run_Ruby() {
+	ruby mergesort.rb
+}
+command_storage[Ruby]=run_Ruby
 
-printf "\nRunning the R version : \n"
-version_start=`date $time_format`
-Rscript mergesort.r
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_R() {
+	Rscript mergesort.r
+}
+command_storage[R]=run_R
 
-printf "\nRunning the Elixir version : \n"
-version_start=`date $time_format`
-elixir mergesort.exs
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_Elixir() {
+	elixir mergesort.exs
+}
+command_storage[Elixir]=run_Elixir
 
-printf "\nRunning the Dart Version : \n"
-version_start=`date $time_format`
-dart mergesort.dart
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_Dart() {
+	dart mergesort.dart
+}
+command_storage[Dart]=run_Dart
 
-printf "\nRunning the Coq Version : \n"
-version_start=`date $time_format`
-coqc mergesort.v
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_Coq() {
+	coqc mergesort.v
+}
+command_storage[Coq]=run_Coq
 
-printf "\nRunning the LUA Version : \n"
-version_start=`date $time_format`
-lua5.3 mergesort.lua
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_LUA() {
+	lua5.3 mergesort.lua
+}
+command_storage[LUA]=run_LUA
 
-printf "\nRunning the TypeScript version : \n"
-version_start=`date $time_format`
-tsc mergesort.ts --outDir out && node mergesort.js
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_TypeScript() {
+	tsc mergesort.ts --outDir out && node mergesort.js
+}
+command_storage[TypeScript]=run_TypeScript
 
-printf "\nRunning the Coffeescript version : \n"
-version_start=`date $time_format`
-coffee mergesort.coffee
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_Coffeescript() {
+	coffee mergesort.coffee
+}
+command_storage[Coffeescript]=run_Coffeescript
 
-printf "\nRunning the Swift version : \n"
-version_start=`date $time_format`
-swift mergesort.swift
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_Swift() {
+	swift mergesort.swift
+}
+command_storage[Swift]=run_Swift
 
-printf "\nRunning the F# version : \n"
-version_start=`date $time_format`
-dotnet fsi mergesort.fsx
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_F#() {
+	dotnet fsi mergesort.fsx
+}
+command_storage[F#]=run_F#
 
-printf "\nRunning the ATS version : \n"
-version_start=`date $time_format`
-myatscc mergesort.dats && ./mergesort_dats
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_ATS() {
+	myatscc mergesort.dats && ./mergesort_dats
+}
+command_storage[ATS]=run_ATS
 
-printf "\nRunning the D Lang version : \n"
-version_start=`date $time_format`
-rdmd mergesort.d
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_D() {
+	rdmd mergesort.d
+}
+command_storage[D]=run_D
 
-printf "\nRunning the Brainfuck version : \n"
-version_start=`date $time_format`
-bf mergesort.b
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_Brainfuck() {
+	bf mergesort.b
+}
+command_storage[Brainfuck]=run_Brainfuck
 
-printf "\nRunning the TCL version : \n"
-version_start=`date $time_format`
-tclsh mergesort.tcl
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_TCL() {
+	tclsh mergesort.tcl
+}
+command_storage[TCL]=run_TCL
 
-printf "\nRunning the Objective C version : \n"
-version_start=`date $time_format`
-clang -fobjc-arc -framework Foundation mergesort.m -o mergesort && ./mergesort
-version_end=`date $time_format`
-elapsed_time "$version_start" "$version_end"
+run_Objective-C() {
+	clang -fobjc-arc -framework Foundation mergesort.m -o mergesort && ./mergesort
+}
+command_storage[Objective-C]=run_Objective-C
+
+run_all_commands command_storage
+
 
 end=`date +%s`
 runtime=$((end-start))
