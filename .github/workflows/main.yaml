@@ -103,6 +103,10 @@ jobs:
     - name : install DLang
       run : sudo snap install dmd --classic
 
+    # set up Ada
+    - name : install GNAT
+      run : sudo apt install gnat
+
    # Runs the main script script
     - name: Run script
       run: ./run.sh

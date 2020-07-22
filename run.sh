@@ -103,6 +103,9 @@ tclsh mergesort.tcl
 printf "\nRunning the Objective C version : \n"
 clang -fobjc-arc -framework Foundation mergesort.m -o mergesort && ./mergesort
 
+printf "\nRunning the Ada version : \n"
+rm -f mergesort.ali mergesort.o mergesort && gnatmake mergesort.adb && ./mergesort && rm -f mergesort.ali mergesort.o mergesort
+
 end=`date +%s`
 runtime=$((end-start))
 printf "\n"
