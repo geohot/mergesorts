@@ -1,41 +1,38 @@
 import java.util.Arrays;
 
 public class mergesort {
-    
-    public static int[] my_mergesort(int a[]) {
-        int n = a.length;
-        if (n == 1) {
-            return a;
-        }
-
-        int[] left = Arrays.copyOfRange(a, 0, n / 2);
-        int[] right = Arrays.copyOfRange(a, n / 2, n);
-        left = my_mergesort(left);
-        right = my_mergesort(right); 
 	
-        int[] arr = new int[left.length + right.length];
-        int l = 0, r = 0, i = 0;
-       	
-	while (true){ 
-		if (l < left.length && r < right.length) {
-		    if (left[l] <= right[r]) {
-			arr[i++] = left[l++];
-		    } else {
-			arr[i++] = right[r++];
-		    }
+	private static void mergeSort(int[] v, int min, int max) {
+		if(min == max) {
+			return;
 		}
-		else if (l < left.length)
-		    arr[i++] = left[l++];	
-		else if (r < right.length)
-		    arr[i++] = right[r++];
-		else
-		    break;
+		int mid = (max + min)/2;
+		mergeSort(v, min, mid);
+		mergeSort(v, mid+1, max);
+		merge(v, min, mid, max);
 	}
-        return arr;
-    }
-
-    public static void main(String[] args) {
-        int[] arr = {5,9,1,3,4,6,6,3,2};
-        System.out.println(Arrays.toString(my_mergesort(arr)));
-    }
+	
+	private static void merge(int[] v, int min, int mid, int max) {
+		int[] temp = new int[max - min + 1];
+		int sx = min;
+		int dx = mid + 1;
+		for(int i = 0; i < temp.length; i++) {
+			if(dx > max || (v[sx] < v[dx] && sx <= mid)) {
+				temp[i] = v[sx];
+				sx++;
+			} else {
+				temp[i] = v[dx];
+				dx++;
+			}
+		}
+		for(int i=0; i < temp.length; i++) {
+			v[i+min] = temp[i];
+		}
+	}
+	
+	public static void main(String[] args) {
+		int[] v = {5, 9, 1, 3, 4, 6, 6, 3, 2};
+		mergeSort(v, 0, v.length - 1);
+		System.out.println(Arrays.toString(v));
+	}
 }
