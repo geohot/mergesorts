@@ -14,15 +14,15 @@ public class mergesort {
 	
 	private static void merge(int[] v, int min, int mid, int max) {
 		int[] temp = new int[max - min + 1];
-		int sx = min;
-		int dx = mid + 1;
+		int left = min;
+		int right = mid + 1;
 		for(int i = 0; i < temp.length; i++) {
-			if(dx > max || (v[sx] < v[dx] && sx <= mid)) {
-				temp[i] = v[sx];
-				sx++;
+			if(right > max || (v[left] < v[right] && left <= mid)) {
+				temp[i] = v[left];
+				left++;
 			} else {
-				temp[i] = v[dx];
-				dx++;
+				temp[i] = v[right];
+				right++;
 			}
 		}
 		for(int i=0; i < temp.length; i++) {
