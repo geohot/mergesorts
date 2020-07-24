@@ -93,7 +93,7 @@ myatscc mergesort.dats && ./mergesort_dats
 
 printf "\nRunning the MATLAB version : \n"
 #matlab -nodesktop -nojvm -nosplash -log -wait -r 'mergesort;exit;'
-octave -q --no-gui mergesort.m
+octave -q --no-gui mergesortm.m
 
 end=`date +%s`
 runtime=$((end-start))
