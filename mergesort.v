@@ -19,6 +19,15 @@ Next Obligation.
   auto.
 Qed.
 
+Lemma skipn_length (n : nat) :
+  forall {A} (l : list A), length (skipn n l) = length l - n.
+Proof.
+  intros A.
+  induction n.
+  - intros l; simpl; rewrite Nat.sub_0_r; reflexivity.
+  - destruct l; simpl; auto.
+Qed.
+
 Program Fixpoint mergesort (x : list nat) {measure (length x)}: list nat :=
   match x with
   | nil => nil
