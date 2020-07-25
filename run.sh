@@ -82,6 +82,9 @@ tsc mergesort.ts --outDir out && node mergesort.js
 printf "\nRunning the Coffeescript version : \n"
 coffee mergesort.coffee
 
+printf "\nRunning the HolyC version : \n"
+~/.cargo/bin/hcc mergesort.hc -o glow && ./glow
+
 end=`date +%s`
 runtime=$((end-start))
 echo "$runtime"

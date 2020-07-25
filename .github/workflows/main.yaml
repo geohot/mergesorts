@@ -79,6 +79,12 @@ jobs:
     # set up Coffeescript
     - name : install Coffeescript
       run : sudo npm install -g coffeescript
+      
+    # set up HolyC
+    - name : install HolyC
+      run : |
+        curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain nightly
+        cargo install --git https://github.com/r-ba/hcc
 
     # Runs the main script script
     - name: Run script
