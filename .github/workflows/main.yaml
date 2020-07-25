@@ -109,13 +109,13 @@ jobs:
 
     # set up FreeBasic
     - name : install freebasic
-    run : |
-      sudo apt install gcc libncurses5-dev libffi-dev libgl1-mesa-dev libx11-dev libxext-dev libxrender-dev libxrandr-dev libxpm-dev
-      sudo apt install libtinfo5
-      wget --output-document FreeBASIC-1.07.1-linux-x86_64.tar.gz https://sourceforge.net/projects/fbc/files/Binaries%20-%20Linux/FreeBASIC-1.07.1-linux-x86_64.tar.gz/download
-      tar -xvvf FreeBASIC-1.07.1-linux-x86_64.tar.gz
-      cd FreeBASIC-1.07.1-linux-x86_64
-      sudo ./install.sh -i
+      run : |
+        sudo apt install gcc libncurses5-dev libffi-dev libgl1-mesa-dev libx11-dev libxext-dev libxrender-dev libxrandr-dev libxpm-dev
+        sudo apt install libtinfo5
+        wget --output-document FreeBASIC-1.07.1-linux-x86_64.tar.gz https://sourceforge.net/projects/fbc/files/Binaries%20-%20Linux/FreeBASIC-1.07.1-linux-x86_64.tar.gz/download
+        tar -xvvf FreeBASIC-1.07.1-linux-x86_64.tar.gz
+        cd FreeBASIC-1.07.1-linux-x86_64
+        sudo ./install.sh -i
 
    # Runs the main script script
     - name: Run script
