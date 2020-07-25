@@ -106,6 +106,9 @@ clang -fobjc-arc -framework Foundation mergesort.m -o mergesort && ./mergesort
 printf "\nRunning the Ada version : \n"
 rm -f mergesort.ali mergesort.o mergesort && gnatmake mergesort.adb && ./mergesort && rm -f mergesort.ali mergesort.o mergesort
 
+printf "\nRunning FreeBasic version : \n"
+rm -f mergesort && fbc mergesort.bas && ./mergesort
+
 end=`date +%s`
 runtime=$((end-start))
 printf "\n"
