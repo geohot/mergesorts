@@ -43,7 +43,7 @@ U0 fbi(I64* array, I64 n) {
     }
 }
 
-I64 main() {
+I64 main() { 
     I64 size = 9;
     I64 *array = MAlloc(8 * size);
     array[0] = 5;
