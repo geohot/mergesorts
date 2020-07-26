@@ -82,6 +82,9 @@ tsc mergesort.ts --outDir out && node mergesort.js
 printf "\nRunning the Coffeescript version : \n"
 coffee mergesort.coffee
 
+printf "\nRunning the HolyC version : \n"
+~/.cargo/bin/hcc mergesort.hc -o glow && ./glow
+
 printf "\nRunning the Swift version : \n"
 swift mergesort.swift
 
@@ -106,8 +109,10 @@ clang -fobjc-arc -framework Foundation mergesort.m -o mergesort && ./mergesort
 printf "\nRunning the Ada version : \n"
 rm -f mergesort.ali mergesort.o mergesort && gnatmake mergesort.adb && ./mergesort && rm -f mergesort.ali mergesort.o mergesort
 
+printf "\nRunning the Pascal version : \n"
+rm -f mergesort mergesort.o && fpc mergesort.pas &> /dev/null && ./mergesort && rm -f mergesort.o mergesort
+
 printf "\nRunning the MATLAB version : \n"
-#matlab -nodesktop -nojvm -nosplash -log -wait -r 'mergesort;exit;'
 octave -q --no-gui mergesortm.m
 
 end=`date +%s`
