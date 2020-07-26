@@ -110,6 +110,7 @@ jobs:
     # set up Pascal
     - name : install Pascal
       run : sudo apt install fp-compiler
-   # Runs the main script script
+
+    # Runs the main script script
     - name: Run script
       run: ./run.sh
