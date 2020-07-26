@@ -66,6 +66,10 @@ run_lang Elixir "elixir mergesort.exs"
 
 run_lang Dart "dart mergesort.dart"
 
+run_lang HolyC "~/.cargo/bin/hcc mergesort.hc -o glow && ./glow"
+
+run_lang Swift "swift mergesort.swift"
+
 run_lang Coq "coqc mergesort.v"
 
 run_lang LUA "lua5.3 mergesort.lua"
@@ -87,6 +91,10 @@ run_lang Brainfuck "bf mergesort.b"
 run_lang TCL "tclsh mergesort.tcl"
 
 run_lang Objective-C  "clang -fobjc-arc -framework Foundation mergesort.m -o mergesort && ./mergesort"
+
+run_lang Ada "rm -f mergesort.ali mergesort.o mergesort && gnatmake mergesort.adb && ./mergesort && rm -f mergesort.ali mergesort.o mergesort"
+
+run_lang Pascal "rm -f mergesort mergesort.o && fpc mergesort.pas &> /dev/null && ./mergesort && rm -f mergesort.o mergesort"
 
 end=`date +%s`
 runtime=$((end-start))

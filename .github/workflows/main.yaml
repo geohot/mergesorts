@@ -79,7 +79,13 @@ jobs:
     # set up Coffeescript
     - name : install Coffeescript
       run : sudo npm install -g coffeescript
-    
+      
+    # set up HolyC
+    - name : install HolyC
+      run : |
+        curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain nightly
+        cargo install --git https://github.com/r-ba/hcc
+
     #set up Swift
     - name : install Swift 
       run : sudo apt install swift
@@ -103,6 +109,14 @@ jobs:
     - name : install DLang
       run : sudo snap install dmd --classic
 
-   # Runs the main script script
+    # set up Ada
+    - name : install GNAT
+      run : sudo apt install gnat
+
+    # set up Pascal
+    - name : install Pascal
+      run : sudo apt install fp-compiler
+
+    # Runs the main script script
     - name: Run script
       run: ./run.sh
