@@ -112,14 +112,14 @@ jobs:
     # set up Ada
     - name : install GNAT
       run : sudo apt install gnat
-      
-    # set up Octave for Matlab
-    - name : install Octave for Matlab
-      run : sudo apt install -y --no-install-recommends octave
 
     # set up Pascal
     - name : install Pascal
       run : sudo apt install fp-compiler
+      
+    # set up Octave for Matlab
+    - name : install Octave for Matlab
+      run : sudo apt install -y --no-install-recommends octave
 
     # Runs the main script script
     - name: Run script
