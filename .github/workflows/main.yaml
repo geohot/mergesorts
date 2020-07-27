@@ -117,6 +117,10 @@ jobs:
     - name : install Pascal
       run : sudo apt install fp-compiler
 
+    # set up Lisp
+    - name : install Clisp
+      run : sudo apt install clisp
+
     # Runs the main script script
     - name: Run script
       run: ./run.sh
