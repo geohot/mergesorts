@@ -117,6 +117,10 @@ jobs:
     - name : install Pascal
       run : sudo apt install fp-compiler
 
+    # set up Julia
+    - name: install Julia
+      run: sudo snap install julia --classic
+
     # Runs the main script script
     - name: Run script
       run: ./run.sh
