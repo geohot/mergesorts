@@ -1,4 +1,4 @@
 #!/bin/bash
 git clean -xdf
-wc mergesort.* | sort
+wc mergesort*.* | sort
 
