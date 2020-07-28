@@ -119,7 +119,7 @@ jobs:
 
     # set up Powershell
     - name : install Powershell
-      run : sudo apt install powershell
+      run : sudo snap install powershell --classic
 
    # Runs the main script script
     - name: Run script
