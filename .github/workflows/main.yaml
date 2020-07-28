@@ -117,10 +117,6 @@ jobs:
     - name : install Pascal
       run : sudo apt install fp-compiler
 
-    # set up Clojure
-    - name : install Clojure
-      run : sudo apt install clojure
-
     # set up Powershell
     - name : install Powershell
       run : sudo apt install powershell
