@@ -115,6 +115,9 @@ rm -f mergesort mergesort.o && fpc mergesort.pas &> /dev/null && ./mergesort && 
 printf "\nRunning the Clojure version : \n"
 clojure mergesort.clj
 
+printf "\nRunning the Powershell version : \n"
+pwsh mergesort.ps1
+
 end=`date +%s`
 runtime=$((end-start))
 printf "\n"

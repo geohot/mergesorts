@@ -22,19 +22,19 @@ jobs:
       run: sudo apt install scala
 
     # set up ocaml
-    - name : install ocaml 
+    - name : install ocaml
       run: sudo apt install ocaml
 
     # set up java
-    - name : install java 
-      run: sudo apt install default-jdk  
+    - name : install java
+      run: sudo apt install default-jdk
 
     # set up haskell
-    - name : install haskell 
+    - name : install haskell
       run: sudo apt install haskell-platform
 
     # set up .swi-prolog
-    - name : install swi-prolog 
+    - name : install swi-prolog
       run: sudo apt install swi-prolog
 
     # set up J
@@ -71,7 +71,7 @@ jobs:
     # set up TypeScript
     - name : install TypeScript
       run : npm install typescript
-      
+
     # set up LUA
     - name : install LUA
       run : sudo apt install lua5.3
@@ -79,7 +79,7 @@ jobs:
     # set up Coffeescript
     - name : install Coffeescript
       run : sudo npm install -g coffeescript
-      
+
     # set up HolyC
     - name : install HolyC
       run : |
@@ -87,7 +87,7 @@ jobs:
         cargo install --git https://github.com/r-ba/hcc
 
     #set up Swift
-    - name : install Swift 
+    - name : install Swift
       run : sudo apt install swift
 
     # set up Kotlin
@@ -97,7 +97,7 @@ jobs:
     # set up ATS
     - name : install ATS
       run : sudo apt install ats2-lang gcc
-      
+
     # set up Brainfuck
     - name : install bf
       run : sudo apt install bf
@@ -120,6 +120,10 @@ jobs:
     # set up Clojure
     - name : install Clojure
       run : sudo apt install clojure
+
+    # set up Powershell
+    - name : install Powershell
+      run : sudo apt install powershell
 
    # Runs the main script script
     - name: Run script
