@@ -52,7 +52,7 @@ kotlinc mergesort.kt -include-runtime -d mergesort.jar && java -jar mergesort.ja
 printf "\nRunning the Prolog version : \n"
 rm -f mergesort && swipl -g main --stand_alone=true -o mergesort -c mergesort.pro && ./mergesort
 
-printf "\nRunning the J version : \n" 
+printf "\nRunning the J version : \n"
 ijconsole mergesort.ijs
 
 printf "\nRunning the Scheme version : \n"
@@ -62,7 +62,7 @@ printf "\nRunning the Ruby version : \n"
 ruby mergesort.rb
 
 printf "\nRunning the R version : \n"
-Rscript mergesort.r 
+Rscript mergesort.r
 
 printf "\nRunning the Elixir version : \n"
 elixir mergesort.exs
@@ -111,6 +111,9 @@ rm -f mergesort.ali mergesort.o mergesort && gnatmake mergesort.adb && ./mergeso
 
 printf "\nRunning the Pascal version : \n"
 rm -f mergesort mergesort.o && fpc mergesort.pas &> /dev/null && ./mergesort && rm -f mergesort.o mergesort
+
+printf "\nRunning the Clojure version : \n"
+clojure ./mergesort.clj
 
 end=`date +%s`
 runtime=$((end-start))
