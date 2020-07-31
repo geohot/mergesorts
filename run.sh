@@ -3,17 +3,18 @@ start=`date +%s`
 
 
 elapsed_time() {
-	if [ "$1" -ge "$2" ]; then elapsed_ns=$(("$1"-"$2")); else elapsed_ns=$(("$2"-"$1")); fi
-	echo "Time elapsed : $(($elapsed_ns/1000000000)) s $(($elapsed_ns/1000000 - ($elapsed_ns/1000000000)*1000)) ms"
+	if [ "$1" -ge "$2" ]; then elapsed_ms=$(("$1"-"$2")); else elapsed_ms=$(("$2"-"$1")); fi
+	((elapsed_ms=elapsed_ms/1000000))
+	echo "Time elapsed : $(($elapsed_ms/1000)) s $(($elapsed_ms - ($elapsed_ms/1000)*1000)) ms"
 }
 
 run_lang() {
-	time_format=+%s%N
-	if [ "$1" = "" ]; then language="UNSPECIFIED"; else language="$1"; fi
+	local time_format=+%s%N
+	if [ "$1" = "" ]; then local language="UNSPECIFIED"; else local language="$1"; fi
 	printf "\nRunning the $language version : \n"
-	version_start=`date $time_format`
+	local version_start=`date $time_format`
 	eval " $2 "
-	version_end=`date $time_format`
+	local version_end=`date $time_format`
 	elapsed_time "$version_start" "$version_end"
 }
 
@@ -95,6 +96,7 @@ run_lang Objective-C  "clang -fobjc-arc -framework Foundation mergesort.m -o mer
 run_lang Ada "rm -f mergesort.ali mergesort.o mergesort && gnatmake mergesort.adb && ./mergesort && rm -f mergesort.ali mergesort.o mergesort"
 
 run_lang Pascal "rm -f mergesort mergesort.o && fpc mergesort.pas &> /dev/null && ./mergesort && rm -f mergesort.o mergesort"
+
 
 end=`date +%s`
 runtime=$((end-start))
