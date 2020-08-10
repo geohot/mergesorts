@@ -1,116 +1,130 @@
 #!/bin/bash
 start=`date +%s`
 
-printf "\nRunning the C version : \n"
-rm -f a.out && gcc mergesort.c && ./a.out && rm -f a.out
 
-printf "\nRunning the Python version : \n"
-python3 mergesort.py
+declare -A all_language_times
 
-printf "\nRunning the Haskell version : \n"
-rm -f mergesort && ghc mergesort.hs && ./mergesort
+show_elapsed_time() {
+	if [ "$1" -ge "$2" ]; then elapsed_ns=$(("$1"-"$2")); else elapsed_ns=$(("$2"-"$1")); fi
+	((elapsed_ms=(elapsed_ns + 500000)/1000000))
+	echo "Time elapsed : $(($elapsed_ms/1000)) s $(($elapsed_ms - ($elapsed_ms/1000)*1000)) ms"
+	
+	#Store all measured times.
+	if [ "$3" ]; then all_language_times["$3"]=$elapsed_ns; fi
+}
 
-printf "\nRunning the Rust version : \n"
-rm -f mergesort && rustc mergesort.rs && ./mergesort
+run_lang() {
+	local time_format=+%s%N
+	if [ "$1" = "" ]; then local language="UNSPECIFIED"; else local language="$1"; fi
+	
+	printf "\nRunning the $language version : \n"
+	#Split commands for measuring run time only.
+	if [ "$3" ]; then
+		eval " $2 "; if [ "$?" -ne 0 ]; then return; fi
+		local version_start=`date $time_format`
+		eval " $3 "; if [ "$?" -ne 0 ]; then return; fi
+		local version_end=`date $time_format`
+		if [ "$4" ]; then eval " $4 "; fi
+	#Combined single command for measuring full compile and run time.
+	else
+		local version_start=`date $time_format`
+		eval " $2 "; if [ "$?" -ne 0 ]; then return; fi
+		local version_end=`date $time_format`
+	fi
+	show_elapsed_time "$version_start" "$version_end" "$language"
+}
 
-printf "\nRunning the Java version : \n"
-rm -f mergesort && javac mergesort.java && java mergesort
+print_sorted() {
+	local -n languages=$1
+	printf "\nPrinting sorted list : \n"
+	for language in ${!languages[@]}
+	do
+		if [ ${#language} -ge 9 ]
+			then echo -e "$language\t: ${languages[$language]} ns"
+			else echo -e "$language\t\t: ${languages[$language]} ns"
+		fi
+	done | sort -n -k3
+}
 
-printf "\nRunning the Javascript version : \n"
-node mergesort.js
 
-printf "\nRunning the PHP version : \n"
-php mergesort.php
+#run_lang "language name" "commands to execute" (or "commands" "to" "execute")
 
-printf "\nRunning the Scala version : \n"
-scala -nc mergesort.scala
+run_lang C "rm -f a.out && gcc mergesort.c && ./a.out && rm -f a.out"
 
-printf "\nRunning the C++ version : \n"
-g++ -std=c++17 mergesort.cpp && ./a.out && rm -f a.out
+run_lang Python "python3 mergesort.py"
 
-printf "\nRunning the Julia version : \n"
-julia mergesort.jl
+run_lang Haskell "rm -f mergesort && ghc mergesort.hs && ./mergesort"
 
-printf "\nRunning the Perl version : \n"
-perl mergesort.pl
+run_lang Rust "rm -f mergesort && rustc mergesort.rs && ./mergesort"
 
-printf "\nRunning the Go version : \n"
-rm -f mergesort && go build mergesort.go && ./mergesort
+run_lang Java "rm -f mergesort && javac mergesort.java && java mergesort"
 
-printf "\nRunning the OCaml version : \n"
-rm -f mergesort && ocamlc mergesort.ml -o mergesort && ./mergesort
+run_lang Javascript "node mergesort.js"
 
-printf "\nRunning the Bash version : \n"
-bash mergesort.sh
+run_lang PHP "php mergesort.php"
 
-printf "\nRunning the C# version : \n"
-mcs -out:mergesort.exe mergesort.cs && mono mergesort.exe
+run_lang Scala "scala -nc mergesort.scala"
 
-printf "\nRunning the Kotlin version : \n"
-kotlinc mergesort.kt -include-runtime -d mergesort.jar && java -jar mergesort.jar
+run_lang C++ "g++ -std=c++17 mergesort.cpp && ./a.out && rm -f a.out"
 
-printf "\nRunning the Prolog version : \n"
-rm -f mergesort && swipl -g main --stand_alone=true -o mergesort -c mergesort.pro && ./mergesort
+run_lang Julia "julia mergesort.jl"
 
-printf "\nRunning the J version : \n" 
-ijconsole mergesort.ijs
+run_lang Perl "perl mergesort.pl"
 
-printf "\nRunning the Scheme version : \n"
-scheme --script mergesort.ss
+run_lang Go "rm -f mergesort && go build mergesort.go && ./mergesort"
 
-printf "\nRunning the Ruby version : \n"
-ruby mergesort.rb
+run_lang OCaml "rm -f mergesort && ocamlc mergesort.ml -o mergesort && ./mergesort"
 
-printf "\nRunning the R version : \n"
-Rscript mergesort.r 
+run_lang Bash "bash mergesort.sh"
 
-printf "\nRunning the Elixir version : \n"
-elixir mergesort.exs
+run_lang C# "mcs -out:mergesort.exe mergesort.cs && mono mergesort.exe"
 
-printf "\nRunning the Dart Version : \n"
-dart mergesort.dart
+run_lang Kotlin "kotlinc mergesort.kt -include-runtime -d mergesort.jar && java -jar mergesort.jar"
 
-printf "\nRunning the Coq Version : \n"
-coqc mergesort.v
+run_lang Prolog "rm -f mergesort && swipl -g main --stand_alone=true -o mergesort -c mergesort.pro && ./mergesort"
 
-printf "\nRunning the LUA Version : \n"
-lua5.3 mergesort.lua
+run_lang J "ijconsole mergesort.ijs"
 
-printf "\nRunning the TypeScript version : \n"
-tsc mergesort.ts --outDir out && node mergesort.js
+run_lang Scheme "scheme --script mergesort.ss"
 
-printf "\nRunning the Coffeescript version : \n"
-coffee mergesort.coffee
+run_lang Ruby "ruby mergesort.rb"
 
-printf "\nRunning the HolyC version : \n"
-~/.cargo/bin/hcc mergesort.hc -o glow && ./glow
+run_lang R "Rscript mergesort.r"
 
-printf "\nRunning the Swift version : \n"
-swift mergesort.swift
+run_lang Elixir "elixir mergesort.exs"
 
-printf "\nRunning the F# version : \n"
-dotnet fsi mergesort.fsx
+run_lang Dart "dart mergesort.dart"
 
-printf "\nRunning the ATS version : \n"
-myatscc mergesort.dats && ./mergesort_dats
+run_lang Coq "coqc mergesort.v"
 
-printf "\nRunning the D Lang version : \n"
-rdmd mergesort.d
+run_lang LUA "lua5.3 mergesort.lua"
 
-printf "\nRunning the Brainfuck version : \n"
-bf mergesort.b
+run_lang TypeScript "tsc mergesort.ts --outDir out && node mergesort.js"
 
-printf "\nRunning the TCL version : \n"
-tclsh mergesort.tcl
+run_lang Coffeescript "coffee mergesort.coffee"
 
-printf "\nRunning the Objective C version : \n"
-clang -fobjc-arc -framework Foundation mergesort.m -o mergesort && ./mergesort
+run_lang HolyC "~/.cargo/bin/hcc mergesort.hc -o glow && ./glow"
 
-printf "\nRunning the Ada version : \n"
-rm -f mergesort.ali mergesort.o mergesort && gnatmake mergesort.adb && ./mergesort && rm -f mergesort.ali mergesort.o mergesort
+run_lang Swift "swift mergesort.swift"
 
-printf "\nRunning the Pascal version : \n"
-rm -f mergesort mergesort.o && fpc mergesort.pas &> /dev/null && ./mergesort && rm -f mergesort.o mergesort
+run_lang F# "dotnet fsi mergesort.fsx"
+
+run_lang ATS "myatscc mergesort.dats && ./mergesort_dats"
+
+run_lang D "rdmd mergesort.d"
+
+run_lang Brainfuck "bf mergesort.b"
+
+run_lang TCL "tclsh mergesort.tcl"
+
+run_lang Objective-C  "clang -fobjc-arc -framework Foundation mergesort.m -o mergesort && ./mergesort"
+
+run_lang Ada "rm -f mergesort.ali mergesort.o mergesort && gnatmake mergesort.adb && ./mergesort && rm -f mergesort.ali mergesort.o mergesort"
+
+run_lang Pascal "rm -f mergesort mergesort.o && fpc mergesort.pas &> /dev/null && ./mergesort && rm -f mergesort.o mergesort"
+
+
+print_sorted "all_language_times"
 
 end=`date +%s`
 runtime=$((end-start))

@@ -106,6 +106,7 @@ jobs:
     - name : install Tcl
       run : sudo apt install tcl
 
+    # set up DLang
     - name : install DLang
       run : sudo snap install dmd --classic
 
