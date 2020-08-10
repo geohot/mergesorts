@@ -2,24 +2,52 @@
 start=`date +%s`
 
 
-elapsed_time() {
-	if [ "$1" -ge "$2" ]; then elapsed_ms=$(("$1"-"$2")); else elapsed_ms=$(("$2"-"$1")); fi
-	((elapsed_ms=elapsed_ms/1000000))
+declare -A all_language_times
+
+show_elapsed_time() {
+	if [ "$1" -ge "$2" ]; then elapsed_ns=$(("$1"-"$2")); else elapsed_ns=$(("$2"-"$1")); fi
+	((elapsed_ms=(elapsed_ns + 500000)/1000000))
 	echo "Time elapsed : $(($elapsed_ms/1000)) s $(($elapsed_ms - ($elapsed_ms/1000)*1000)) ms"
+	
+	#Store all measured times.
+	if [ "$3" ]; then all_language_times["$3"]=$elapsed_ns; fi
 }
 
 run_lang() {
 	local time_format=+%s%N
 	if [ "$1" = "" ]; then local language="UNSPECIFIED"; else local language="$1"; fi
+	
 	printf "\nRunning the $language version : \n"
-	local version_start=`date $time_format`
-	eval " $2 "
-	local version_end=`date $time_format`
-	elapsed_time "$version_start" "$version_end"
+	#Split commands for measuring run time only.
+	if [ "$3" ]; then
+		eval " $2 "; if [ "$?" -ne 0 ]; then return; fi
+		local version_start=`date $time_format`
+		eval " $3 "; if [ "$?" -ne 0 ]; then return; fi
+		local version_end=`date $time_format`
+		if [ "$4" ]; then eval " $4 "; fi
+	#Combined single command for measuring full compile and run time.
+	else
+		local version_start=`date $time_format`
+		eval " $2 "; if [ "$?" -ne 0 ]; then return; fi
+		local version_end=`date $time_format`
+	fi
+	show_elapsed_time "$version_start" "$version_end" "$language"
+}
+
+print_sorted() {
+	local -n languages=$1
+	printf "\nPrinting sorted list : \n"
+	for language in ${!languages[@]}
+	do
+		if [ ${#language} -ge 9 ]
+			then echo -e "$language\t: ${languages[$language]} ns"
+			else echo -e "$language\t\t: ${languages[$language]} ns"
+		fi
+	done | sort -n -k3
 }
 
 
-#run_lang "language name" "command to execute"
+#run_lang "language name" "commands to execute" (or "commands" "to" "execute")
 
 run_lang C "rm -f a.out && gcc mergesort.c && ./a.out && rm -f a.out"
 
@@ -67,10 +95,6 @@ run_lang Elixir "elixir mergesort.exs"
 
 run_lang Dart "dart mergesort.dart"
 
-run_lang HolyC "~/.cargo/bin/hcc mergesort.hc -o glow && ./glow"
-
-run_lang Swift "swift mergesort.swift"
-
 run_lang Coq "coqc mergesort.v"
 
 run_lang LUA "lua5.3 mergesort.lua"
@@ -78,6 +102,8 @@ run_lang LUA "lua5.3 mergesort.lua"
 run_lang TypeScript "tsc mergesort.ts --outDir out && node mergesort.js"
 
 run_lang Coffeescript "coffee mergesort.coffee"
+
+run_lang HolyC "~/.cargo/bin/hcc mergesort.hc -o glow && ./glow"
 
 run_lang Swift "swift mergesort.swift"
 
@@ -97,6 +123,8 @@ run_lang Ada "rm -f mergesort.ali mergesort.o mergesort && gnatmake mergesort.ad
 
 run_lang Pascal "rm -f mergesort mergesort.o && fpc mergesort.pas &> /dev/null && ./mergesort && rm -f mergesort.o mergesort"
 
+
+print_sorted "all_language_times"
 
 end=`date +%s`
 runtime=$((end-start))
