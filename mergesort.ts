@@ -1,7 +1,7 @@
 export {}
 const mergesort = (arr: number[]): number[] => {
   const length = arr.length
-  if (length === 1 || length === 0 || arr === null) {
+  if (length === 1 || length === 0) {
     return arr
   }
 
