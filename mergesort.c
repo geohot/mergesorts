@@ -6,12 +6,10 @@
 void my_mergesort(int *arr, int len) {
   //printf("%p %d\n", arr, len);
   if (len == 1) { return; }
-  if (len == 2) {
-    if (arr[0] > arr[1]) {
-      int t = arr[1];
-      arr[1] = arr[0];
-      arr[0] = t;
-    }
+  if (len == 2 && arr[0] > arr[1]) {
+    int t = arr[1];
+    arr[1] = arr[0];
+    arr[0] = t;
   }
 
   int p = len/2;
@@ -57,4 +55,3 @@ int main() {
   }
   printf("\n");
 }
-
