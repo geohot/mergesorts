@@ -5,7 +5,7 @@ const mergesort = (arr: number[]): number[] => {
     return arr
   }
 
-  const result = []
+  const result: number[] = []
   const mid: number = length / 2
   let left: number[] = arr.slice(0, mid)
   let right: number[] = arr.slice(mid)
