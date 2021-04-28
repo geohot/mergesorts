@@ -12,4 +12,4 @@
                 (merge (mergesort (subseq list 0 (ceiling len 2)))
                        (mergesort (subseq list (ceiling len 2))))))))
 
-(write(mergesort(list 5 9 1 3 4 6 6 3 2)))
+(write(mergesort(list 5 9 1 3 4 6 6 3 2))) (terpri)
