@@ -73,7 +73,7 @@ dart mergesort.dart
 printf "\nRunning the Coq Version : \n"
 coqc mergesort.v
 
-printf "\nRunning the LUA Version : \n"
+printf "\nRunning the Lua Version : \n"
 lua5.3 mergesort.lua
 
 printf "\nRunning the TypeScript version : \n"
@@ -94,7 +94,7 @@ dotnet fsi mergesort.fsx
 printf "\nRunning the ATS version : \n"
 myatscc mergesort.dats && ./mergesort_dats
 
-printf "\nRunning the D Lang version : \n"
+printf "\nRunning the D version : \n"
 rdmd mergesort.d
 
 printf "\nRunning the Brainfuck version : \n"
@@ -111,6 +111,9 @@ rm -f mergesort.ali mergesort.o mergesort && gnatmake mergesort.adb && ./mergeso
 
 printf "\nRunning the Pascal version : \n"
 rm -f mergesort mergesort.o && fpc mergesort.pas &> /dev/null && ./mergesort && rm -f mergesort.o mergesort
+
+printf "\nRunning the Common Lisp version : \n"
+clisp mergesort.lisp
 
 end=`date +%s`
 runtime=$((end-start))
