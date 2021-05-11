@@ -17,24 +17,24 @@ jobs:
     - name: update packages
       run: sudo apt update
 
-    # set up scala
+    # set up Scala
     - name: install scala
       run: sudo apt install scala
 
-    # set up ocaml
-    - name : install ocaml 
+    # set up OCaml
+    - name : install OCaml 
       run: sudo apt install ocaml
 
-    # set up java
-    - name : install java 
+    # set up Java
+    - name : install Java 
       run: sudo apt install default-jdk  
 
-    # set up haskell
-    - name : install haskell 
+    # set up Haskell
+    - name : install Haskell 
       run: sudo apt install haskell-platform
 
-    # set up .swi-prolog
-    - name : install swi-prolog 
+    # set up Prolog
+    - name : install Prolog
       run: sudo apt install swi-prolog
 
     # set up J
@@ -47,8 +47,8 @@ jobs:
     - name : install ChezScheme
       run : sudo apt install chezscheme
 
-    # set up elixir
-    - name : install elixir
+    # set up Elixir
+    - name : install Elixir
       run : sudo apt install elixir
 
     # set up R
@@ -72,8 +72,8 @@ jobs:
     - name : install TypeScript
       run : npm install typescript
       
-    # set up LUA
-    - name : install LUA
+    # set up Lua
+    - name : install Lua
       run : sudo apt install lua5.3
 
     # set up Coffeescript
@@ -105,8 +105,9 @@ jobs:
     # set up TCL
     - name : install Tcl
       run : sudo apt install tcl
-
-    - name : install DLang
+    
+    # set up D
+    - name : install D
       run : sudo snap install dmd --classic
 
     # set up Ada
@@ -116,6 +117,10 @@ jobs:
     # set up Pascal
     - name : install Pascal
       run : sudo apt install fp-compiler
+    
+    # set up Common Lisp
+    - name : install Common Lisp
+      run : sudo apt install clisp
 
     # Runs the main script script
     - name: Run script
