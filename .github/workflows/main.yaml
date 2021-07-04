@@ -117,6 +117,12 @@ jobs:
     - name : install Pascal
       run : sudo apt install fp-compiler
 
+    # set up COBOL
+    - name : install COBOL
+      run : sudo apt install gnucobol
+
     # Runs the main script script
     - name: Run script
       run: ./run.sh
+
+      
