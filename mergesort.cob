@@ -4,10 +4,10 @@
        DATA DIVISION.
        WORKING-STORAGE SECTION.
        01  WS-NUM-TABLE.
-           05 WS-NUMS OCCURS 9 INDEXED BY IDX.
+           05 WS-NUMS OCCURS 100 INDEXED BY IDX.
               07 WS-NUM           PIC Z(9)9.   
        01  WS-SORT-TABLE.
-           05 WS-SORT OCCURS 9 INDEXED BY IDX-S.
+           05 WS-SORT OCCURS 100 INDEXED BY IDX-S.
               07 WS-SORT-NUM      PIC Z(9)9.                   
        01  WS-MAX                 PIC S9(4) COMP-3.
        01  SORT-WIDTH             PIC S9(4) COMP-3.
@@ -31,11 +31,7 @@
 
        MAIN-LOGIC SECTION.
        MAIN-000.
-      *    MOVE '5,9,1,3,4,6,6,3,2' TO WS-INP.
-      *    MOVE '9,8,7,6,5,4,3,2,1' TO WS-INP.
-      *    MOVE '1,2,3,4,5,6,7,8,9' TO WS-INP.
-      *    MOVE '1' TO WS-INP.
-      *    MOVE '' TO WS-INP.
+           MOVE '5,9,1,3,4,6,6,3,2' TO WS-INP.
       * LOAD INTO ARRAY 
            IF WS-INP = ""
                DISPLAY "NOTHING HERE!!! :("
@@ -52,7 +48,6 @@
              END-UNSTRING      
              SET IDX UP BY 1
            END-PERFORM.
-           DISPLAY 'B NUMS : ' WS-NUM-TABLE.
 
            PERFORM MERGE-SORT. 
     
@@ -67,7 +62,6 @@
                 INSPECT WS-SORT-NUM(IDX) TALLYING WS-P1 
                   FOR LEADING SPACES
                 IF IDX = WS-MAX
-                  DISPLAY 'IDX:' IDX WS-SORT-NUM(1)
                   DISPLAY WS-SORT-NUM(IDX)(WS-P1 + 1:) 
                 ELSE  
                   DISPLAY WS-SORT-NUM(IDX)(WS-P1 + 1:) WS-COMMA 
@@ -82,15 +76,12 @@
        MERGE-SORT SECTION.
        MG-010.
            MOVE 1 TO SORT-WIDTH.
-           DISPLAY 'WS-MAX :' WS-MAX.
            PERFORM UNTIL SORT-WIDTH >= WS-MAX
              COMPUTE WS-TEMP1 = 2 * SORT-WIDTH
              PERFORM VARYING WS-I FROM 1 BY WS-TEMP1
                      UNTIL WS-I > WS-MAX
                PERFORM BOTTOM-MERGE
              END-PERFORM
-             DISPLAY ' '
-             DISPLAY 'COPY TABLE:' WS-SORT-TABLE
              PERFORM COPY-TABLE        
              COMPUTE SORT-WIDTH = 2 * SORT-WIDTH
            END-PERFORM.
@@ -116,31 +107,18 @@
              MOVE WS-MAX  TO WS-END    
            END-IF.
 
-           DISPLAY 'Iteration: ' WS-I ',' 
-                   'Sort Width: ' SORT-WIDTH ','
-                   'I:' WS-IM ',' 
-                   'J:' WS-JM ','
-                   'END:' WS-END
-
            PERFORM VARYING WS-KM FROM WS-LEFT
                    BY 1 UNTIL WS-KM > WS-END
              IF WS-IM < WS-RIGHT AND
                 (WS-JM > WS-END OR
                  WS-NUM(WS-IM)<=WS-NUM(WS-JM))
-               DISPLAY '*I:' WS-IM ',NUM:' WS-NUM(WS-IM)   
-               DISPLAY 'J:' WS-JM ',NUM:' WS-NUM(WS-JM) 
                MOVE WS-NUM(WS-IM) TO WS-SORT-NUM(WS-KM)
                ADD 1              TO WS-IM
              ELSE
-               DISPLAY 'I:' WS-IM ',NUM:' WS-NUM(WS-IM)   
-               DISPLAY '*J:' WS-JM ',NUM:' WS-NUM(WS-JM) 
                MOVE WS-NUM(WS-JM) TO WS-SORT-NUM(WS-KM)
                ADD 1              TO WS-JM
-             END-IF
-             DISPLAY 'KNUMS' WS-KM ' : ' WS-SORT-TABLE                          
+             END-IF                       
            END-PERFORM.  
-
-           DISPLAY 'NUMS : ' WS-SORT-TABLE.
 
        BM-999.
            EXIT.
