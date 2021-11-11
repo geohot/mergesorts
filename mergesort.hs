@@ -1,13 +1,13 @@
 merge :: (a -> a -> Bool) -> [a] -> [a] -> [a]
-merge _      x     [] = x
-merge _     []      y = y
+merge _ x [] = x
+merge _ [] y = y
 merge f (x:xs) (y:ys)
                     | f x y     = y:(merge (x:xs) ys)
                     | otherwise = x:(merge xs (y:ys))
 
 mergesort :: (a -> a -> Bool) -> [a] -> [a] 
-mergesort _     [] = []
-mergesort _    [x] = [x] 
+mergesort _ [] = []
+mergesort _ [x] = [x] 
 mergesort f [x, y]
                  | f x y     = [y, x]
                  | otherwise = [x, y]
