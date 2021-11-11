@@ -1,19 +1,19 @@
-merge :: [Int] -> [Int] -> [Int]
-merge x [] = x
-merge [] y = y
-merge (x:xs) (y:ys) =
-  if x > y
-  then y:(merge (x:xs) ys)
-  else x:(merge xs (y:ys))
+merge :: (a -> a -> Bool) -> [a] -> [a] -> [a]
+merge _ x [] = x
+merge _ [] y = y
+merge f (x:xs) (y:ys)
+                    | f x y     = y:(merge (x:xs) ys)
+                    | otherwise = x:(merge xs (y:ys))
 
-mergesort :: [Int] -> [Int]
-mergesort [] = [] 
-mergesort [x] = [x] 
-mergesort [x,y] = if x > y then [y,x] else [x,y]
-mergesort x = 
-  let p = div (length x) 2 in
-  merge (mergesort $ take p x) (mergesort $ drop p x)
+mergesort :: (a -> a -> Bool) -> [a] -> [a] 
+mergesort _ [] = []
+mergesort _ [x] = [x] 
+mergesort f [x, y]
+                 | f x y     = [y, x]
+                 | otherwise = [x, y]
+mergesort f x = merge f (mergesort f (take p x)) (mergesort f (drop p x))
+                where
+                    p = div (length x) 2
 
 main :: IO()
-main = putStrLn $ show $ mergesort [5,9,1,3,4,6,6,3,2]
-
+main = print $ mergesort (>) [5,9,1,3,4,6,6,3,2]
