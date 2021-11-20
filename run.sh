@@ -112,6 +112,9 @@ rm -f mergesort.ali mergesort.o mergesort && gnatmake mergesort.adb && ./mergeso
 printf "\nRunning the Pascal version : \n"
 rm -f mergesort mergesort.o && fpc mergesort.pas &> /dev/null && ./mergesort && rm -f mergesort.o mergesort
 
+printf "\nRunning the Racket version : \n"
+racket mergesort.rkt
+
 end=`date +%s`
 runtime=$((end-start))
 printf "\n"
