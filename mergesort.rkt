@@ -1,5 +1,7 @@
 #lang racket
 
+;; https://learningtogetolder.wordpress.com/2013/06/14/merge-sort-in-racket/
+
 (define (merge-lists xs ys)
   (cond
     [(null? xs) ys]
