@@ -1,20 +1,20 @@
 #lang racket
 
-;; https://learningtogetolder.wordpress.com/2013/06/14/merge-sort-in-racket/
+;https://learningtogetolder.wordpress.com/2013/06/14/merge-sort-in-racket/
 
 (define (merge-lists xs ys)
   (cond
-    [(null? xs) ys]
     ;if xs is empty, return ys
-    [(null? ys) xs]
+    [(null? xs) ys]
     ;if ys is empty, return xs
-    [(< (car xs) (car ys))
+    [(null? ys) xs]
     ;if the head of list "xs" is bigger than head of list "ys"
-     (cons (car xs) (merge-lists (cdr xs) ys))]
+    [(< (car xs) (car ys))
      ;cons head xs to (recurse)
-    [#t ;I use true as an else cond here - possibly bad style?
-     (cons (car ys) (merge-lists xs (cdr ys)))]))
+     (cons (car xs) (merge-lists (cdr xs) ys))]
+    [#t
      ;cons head ys to (recurse)
+     (cons (car ys) (merge-lists xs (cdr ys)))]))
 
 (define (merge-sort xs)
   (cond
