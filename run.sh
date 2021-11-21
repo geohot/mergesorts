@@ -109,6 +109,9 @@ clang -fobjc-arc -framework Foundation mergesort.m -o mergesort && ./mergesort
 printf "\nRunning the Ada version : \n"
 rm -f mergesort.ali mergesort.o mergesort && gnatmake mergesort.adb && ./mergesort && rm -f mergesort.ali mergesort.o mergesort
 
+printf "\nRunning the Racket version : \n"
+racket mergesort.rkt
+
 printf "\nRunning the Pascal version : \n"
 rm -f mergesort mergesort.o && fpc mergesort.pas &> /dev/null && ./mergesort && rm -f mergesort.o mergesort
 
