@@ -17,9 +17,10 @@ function mergesort(a) {
 			if (m1[0] <= m2[0]) {
 				ret.push(m1[0]);
 				m1 = m1.slice(1);
+			} else {
+				ret.push(m2[0]);
+				m2 = m2.slice(1);
 			}
-			ret.push(m2[0]);
-			m2 = m2.slice(1);
 		}
 		if (m1.length > 0) {
 			ret = Array.prototype.push.apply(m1, ret);
