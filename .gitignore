@@ -8,6 +8,7 @@ Mergesort
 *.class
 *.cmi
 *.cmo
+*.beam
 out
 
 ## Coq files
