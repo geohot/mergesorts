@@ -112,6 +112,9 @@ rm -f mergesort.ali mergesort.o mergesort && gnatmake mergesort.adb && ./mergeso
 printf "\nRunning the Pascal version : \n"
 rm -f mergesort mergesort.o && fpc mergesort.pas &> /dev/null && ./mergesort && rm -f mergesort.o mergesort
 
+printf "\nRunning the Erlang version : \n"
+rm -f mergesort.beam && erlc mergesort.erl && erl -eval 'io:format("~p~n", [mergesort:sort([5,9,1,3,4,6,6,3,2])]), halt().' -noshell
+
 end=`date +%s`
 runtime=$((end-start))
 printf "\n"
