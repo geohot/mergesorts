@@ -12,6 +12,7 @@ void my_mergesort(int *arr, int len) {
       arr[1] = arr[0];
       arr[0] = t;
     }
+    return;
   }
 
   int p = len/2;
