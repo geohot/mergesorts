@@ -24,7 +24,7 @@ function merge_sort(arr, begin, end,                mid){
 
 function main(          arr,i){
     split("5,9,1,3,4,6,6,3,2", arr, ",");
-    merge_sort(arr, 1, length(arr)+1);
+    merge_sort(arr, 1, length(arr)+1);   #split for some reason creates 1-based array
     for(i = 1 ; i <= length(arr);++i)
         printf("%s ",arr[i]);
     printf("\n");
