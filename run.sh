@@ -28,6 +28,9 @@ scala -nc mergesort.scala
 printf "\nRunning the C++ version : \n"
 g++ -std=c++17 mergesort.cpp && ./a.out && rm -f a.out
 
+printf "\nRunning the compiletime C++11 version : \n"
+g++ mergesort.compiletime.cpp -std=c++11
+
 printf "\nRunning the Julia version : \n"
 julia mergesort.jl
 
