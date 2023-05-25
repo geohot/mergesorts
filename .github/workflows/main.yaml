@@ -117,6 +117,15 @@ jobs:
     - name : install Pascal
       run : sudo apt install fp-compiler
 
+    # set up Zig
+    - name: install Zig
+      run : |
+        curl -O https://ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.3298+5744ceedb.tar.xz
+        tar xf zig-linux-x86_64-0.11.0-dev.3298+5744ceedb.tar.xz
+        sudo mv zig-linux-x86_64-0.11.0-dev.3298+5744ceedbm /usr/local
+        echo "export PATH=$PATH:/usr/local/zig-linux-x86_64-0.11.0-dev.3298+5744ceedbm" >> $GITHUB_ENV
+
+
     # Runs the main script script
     - name: Run script
       run: ./run.sh
