@@ -81,10 +81,10 @@ jobs:
       run : sudo npm install -g coffeescript
       
     # set up HolyC
-    - name : install HolyC
-      run : |
-        curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain nightly
-        cargo install --git https://github.com/r-ba/hcc
+    # - name : install HolyC
+      # run : |
+        # curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain nightly
+        # cargo install --git https://github.com/r-ba/hcc
 
     #set up Swift
     - name : install Swift 
@@ -116,6 +116,14 @@ jobs:
     # set up Pascal
     - name : install Pascal
       run : sudo apt install fp-compiler
+
+    # set up Zig
+    - name: install Zig
+      run : sudo snap install zig --classic --beta
+
+    # set up Hare
+    - name: install Hare
+      run : sudo snap install hare --edge
 
     # Runs the main script script
     - name: Run script

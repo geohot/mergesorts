@@ -112,6 +112,12 @@ rm -f mergesort.ali mergesort.o mergesort && gnatmake mergesort.adb && ./mergeso
 printf "\nRunning the Pascal version : \n"
 rm -f mergesort mergesort.o && fpc mergesort.pas &> /dev/null && ./mergesort && rm -f mergesort.o mergesort
 
+printf "\nRunning the Zig version : \n"
+rm -f mergesort mergesort.o && zig build-exe mergesort.zig &> /dev/null && ./mergesort && rm -f mergesort.o mergesort 
+
+printf "\nRunning the Hare version : \n"
+rm -f mergesort mergesort.o && hare build -o mergesort mergesort.ha &> /dev/null && ./mergesort && rm -f mergesort.o mergesort 
+
 end=`date +%s`
 runtime=$((end-start))
 printf "\n"
