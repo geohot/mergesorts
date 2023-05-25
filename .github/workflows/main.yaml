@@ -5,7 +5,6 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-  workflow_dispatch:
 
 jobs:
   build:
@@ -120,8 +119,11 @@ jobs:
 
     # set up Zig
     - name: install Zig
-      run : snap install zig --classic --beta
+      run : sudo snap install zig --classic --beta
 
+    # set up Hare
+    - name: install Hare
+      run : sudo snap install hare --edge
 
     # Runs the main script script
     - name: Run script
